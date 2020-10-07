@@ -20,114 +20,63 @@ class FirstMoveViewController: UIViewController {
         
     }
     @IBAction func frontClicked(_ sender: Any) {
-        print("front clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.rightStickVertical = 0.5
-        }
+        DronePilotManager.shared.goForward()
 
     }
     
     @IBAction func lefftClicked(_ sender: Any) {
-        print("left clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.rightStickHorizontal = -0.5
-        }
+        DronePilotManager.shared.goLeft()
 
     }
     
     @IBAction func rightClicked(_ sender: Any) {
-        print("right clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.rightStickHorizontal = 0.5
-        }
+        DronePilotManager.shared.goRight()
     }
     
     @IBAction func backClicked(_ sender: Any) {
-        print("back clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.rightStickVertical = -0.5
-        }
+        DronePilotManager.shared.goBackward()
     }
+
     
-    
-    @IBAction func stopClicked(_ sender: UIButton) {
-        print("Stop clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.leftStickVertical = 0.0
-            mySpark.mobileRemoteController?.leftStickHorizontal = 0.0
-            mySpark.mobileRemoteController?.rightStickHorizontal = 0.0
-            mySpark.mobileRemoteController?.rightStickVertical = 0.0
-        }
+    @IBAction func stopClicked(_ sender: UIButton){
+        DronePilotManager.shared.stop()
     }
     
     @IBAction func takeOffClicked(_ sender: Any) {
-        print("takeoff clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            if let flightController = mySpark.flightController {
-                flightController.startTakeoff(completion: { (err) in
-                    print(err.debugDescription)
-                })
-            }
-        }
+        DronePilotManager.shared.takeOff()
     }
     
     @IBAction func landingClicked(_ sender: Any) {
-        print("landing clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            if let flightController = mySpark.flightController {
-                flightController.startLanding(completion: { (err) in
-                    print(err.debugDescription)
-                })
-            }
-        }
+        DronePilotManager.shared.landing()
     }
     
     @IBAction func upClicked(_ sender: Any) {
-        print("UP clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.leftStickVertical = 0.5
-        }
+        DronePilotManager.shared.goUp()
     }
     
     @IBAction func downClicked(_ sender: Any) {
-        print("Down clicked")
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-            mySpark.mobileRemoteController?.leftStickVertical = -0.5
-        }
+        DronePilotManager.shared.goDown()
     }
     
     @IBAction func startSeqClicked(_ sender: Any) {
-        move(moves: [Move(duration: 2.0, speed: 0.5),
-                     Move(duration: 1.0, speed: 0.9),
-                     Move(duration: 3.0, speed: -0.5)])
+        Debugger.shared.log("HELLOOO")
+        
+        let sequencies: [Sequence] = [
+            Sequence(speed: 0.2, action: DronePilotManager.Action.TAKEOFF, duration: 4),
+            Sequence(speed: 0.2, action: DronePilotManager.Action.FORWARD, duration: 2),
+            Sequence(speed: 0.2, action: DronePilotManager.Action.RIGHT, duration: 2),
+            Sequence(speed: 0.2, action: DronePilotManager.Action.BACKWARD, duration: 2),
+            Sequence(speed: 0.2, action: DronePilotManager.Action.LEFT, duration: 2),
+            Sequence(speed: 0.2, action: DronePilotManager.Action.LANDING, duration: 4),
+        ]
+        
+        DroneSequenciesManager.shared.setSequencies(sequencies).play()
     }
+
     
-    struct Move {
-        var duration:Double
-        var speed:Float
+    @IBAction func stopSequenceClicked(_ sender: Any) {
+        DroneSequenciesManager.shared.clearSequencies()
     }
-    func move(moves:[Move]) {
-        
-        var localMoves = moves
-        print(localMoves)
-        print(localMoves.first?.duration)
-        if moves.count > 0 {
-            if let currentMove = localMoves.first{
-                print("Mouvement \(currentMove.duration)")
-                DispatchQueue.main.asyncAfter(deadline: .now() + currentMove.duration) {
-                    print("Stop")
-                    localMoves.remove(at: 0)
-                    self.move(moves: localMoves)
-                }
-            }
-        }else{
-            print("Finito")
-        }
-        
-        SeqManager.instance.clear()
-        
-    }
-    
     
     /*
     // MARK: - Navigation

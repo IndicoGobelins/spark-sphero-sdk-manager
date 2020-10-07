@@ -25,7 +25,6 @@ class DroneSequenciesManager {
     
     // PLAY HANDLER
     public func play() -> Void {
-        Debugger.shared.log("Log from play method")
         if self._sequencies.count > 0 {
             /* Retrieve the current sequence of the array */
             let currentSequence = self._sequencies.first
@@ -49,6 +48,14 @@ class DroneSequenciesManager {
     
     public func playCurrentSequence(duration: Double, _ onFinishCallback: @escaping () -> ()) -> Void {
         self._state.playCurrentSequence(duration: duration, onFinishCallback)
+    }
+    
+    public func clearSequencies() -> Void {
+        Debugger.shared.log("Clear sequencies")
+        self._sequencies = []
+        self._state = StopStateSequence(self)
+        self._dronePilotManager.stop()
+        self._dronePilotManager.setSpeed(0.3)
     }
     
     
@@ -86,6 +93,10 @@ class DroneSequenciesManager {
             self._state = LeftStateSequence(self)
         case .STOP:
             self._state = StopStateSequence(self)
+        case .TAKEOFF:
+            self._state = TakeOffStateSequence(self)
+        case .LANDING:
+            self._state = LandingStateSequence(self)
         default:
             self._state = StopStateSequence(self)
         }
@@ -109,7 +120,7 @@ class DroneSequenciesManager {
         for sequence in sequencies {
             returnedSequencies.append(sequence)
             returnedSequencies.append(
-                Sequence(speed: 0, action: DronePilotManager.Action.STOP, duration: self._stopDelay)
+                Sequence(speed: 0.3, action: DronePilotManager.Action.STOP, duration: self._stopDelay)
             )
         }
         

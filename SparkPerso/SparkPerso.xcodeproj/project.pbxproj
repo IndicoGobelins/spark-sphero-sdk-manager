@@ -124,6 +124,8 @@
 		88A5D468252CDDE000D281AD /* DownStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D467252CDDE000D281AD /* DownStateSequence.swift */; };
 		88A5D46B252CDE0D00D281AD /* StopStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */; };
 		B25DCA3E206348505DAC1430 /* Pods_SparkPerso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */; };
+		EDAF181C252DE3C100216AC0 /* TakeOffStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */; };
+		EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +285,8 @@
 		88A5D467252CDDE000D281AD /* DownStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownStateSequence.swift; sourceTree = "<group>"; };
 		88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStateSequence.swift; sourceTree = "<group>"; };
 		9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SparkPerso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeOffStateSequence.swift; sourceTree = "<group>"; };
+		EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingStateSequence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -719,6 +723,8 @@
 				88A5D464252CDDC300D281AD /* UpStateSequence.swift */,
 				88A5D467252CDDE000D281AD /* DownStateSequence.swift */,
 				88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */,
+				EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */,
+				EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -959,7 +965,9 @@
 				61EDDB192359BC42008B3636 /* BasicMove.swift in Sources */,
 				61C3D69D231C171F00F98C11 /* CGContext+GraphLines.swift in Sources */,
 				6117015E21F60C7F009F47E4 /* ImageRecognition.swift in Sources */,
+				EDAF181C252DE3C100216AC0 /* TakeOffStateSequence.swift in Sources */,
 				61C3D67C231BF82F00F98C11 /* ToyProtocols.swift in Sources */,
+				EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */,
 				613A72F4237C6A9000119581 /* FFNN+Storage.swift in Sources */,
 				88A5D458252CDCBB00D281AD /* RightStateSequence.swift in Sources */,
 				6184E2E521E8AFEB00895FDF /* AutoMoveViewController.swift in Sources */,
@@ -1220,7 +1228,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7TZGU5QVQ6;
+				DEVELOPMENT_TEAM = C5T2ANYJQG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1242,7 +1250,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7TZGU5QVQ6;
+				DEVELOPMENT_TEAM = C5T2ANYJQG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

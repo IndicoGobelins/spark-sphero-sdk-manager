@@ -59,17 +59,7 @@ class ConnectionViewController: UIViewController {
     
     // Public entry to test some code
     @IBAction func onClickSandboxButton(_ sender: Any) {
-        Debugger.shared.log("HELLOOO")
-        
-        let sequencies: [Sequence] = [
-            Sequence(speed: 0.4, action: DronePilotManager.Action.FORWARD, duration: 3),
-            Sequence(speed: 0.4, action: DronePilotManager.Action.BACKWARD, duration: 1),
-            Sequence(speed: 0.4, action: DronePilotManager.Action.LEFT, duration: 2),
-            Sequence(speed: 0.4, action: DronePilotManager.Action.RIGHT, duration: 2.5),
-            Sequence(speed: 0.4, action: DronePilotManager.Action.UP, duration: 3),
-        ]
-        
-        DroneSequenciesManager.shared.setSequencies(sequencies).play()
+        Debugger.shared.log("sandbooooox")
     }
     
 }
