@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SandboxViewController: UIViewController {
     
@@ -30,9 +31,13 @@ class SandboxViewController: UIViewController {
         USBBridge.shared.receivedMessage({ (str) in
             //print("Received \(str)")
             //Debugger.shared.log("Received \(str)")
+            let jsonData = str.data(using: .utf8)
+            let data: DataWebsocket = try! JSONDecoder().decode(DataWebsocket.self, from: jsonData!)
             
             self.logTextView.text = str
         })
+        
+        
         
     }
     
@@ -45,5 +50,9 @@ class SandboxViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    struct DataWebsocket: Decodable {
+        let target, action: String
+    }
 
 }
