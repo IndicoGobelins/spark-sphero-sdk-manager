@@ -59,7 +59,7 @@ class ConnectionViewController: UIViewController {
     
     // Public entry to test some code
     @IBAction func onClickSandboxButton(_ sender: Any) {
-        Debugger.shared.log("sandbooooox")
+
     }
     
 }
