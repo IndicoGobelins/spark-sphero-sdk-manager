@@ -11,8 +11,6 @@ import Foundation
 
 class SandboxViewController: UIViewController {
     
-    
-    @IBOutlet weak var logLabel: UILabel!
     @IBOutlet weak var logTextView: UITextView!
     
     override func viewDidLoad() {
@@ -33,9 +31,38 @@ class SandboxViewController: UIViewController {
             
             if header == CommunicationHelper.header {
                 let formatedData: CommunicationData = CommunicationHelper().formatDataToStruct(str)
-                self.logTextView.text = "\(formatedData.device) - \(formatedData.action) - \(formatedData.activity)"
+                
             }
         })
     
     }
+    
+    @IBAction func standupClicked(_ sender: Any) {
+        DogActivity.shared.standUpAction()
+    }
+    
+    @IBAction func searchClicked(_ sender: Any) {
+        DogActivity.shared.searchAction()
+    }
+    
+    @IBAction func backClicked(_ sender: Any) {
+        DogActivity.shared.backAction()
+    }
+    
+    @IBAction func sitdownClicked(_ sender: Any) {
+        DogActivity.shared.sitDownAction()
+    }
+    
+    
+    @IBAction func foundClicked(_ sender: Any) {
+        DroneSequenciesManager.shared.clearSequencies()
+    }
+    
+    
+    @IBAction func stopClicked(_ sender: Any) {
+        DronePilotManager.shared.stop()
+    }
+    
+    
+    
 }

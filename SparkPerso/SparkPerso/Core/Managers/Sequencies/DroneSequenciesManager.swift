@@ -15,6 +15,9 @@ class DroneSequenciesManager {
     private var _sequencies: [Sequence] = []
     private var _state: StateSequence! = nil
     private var _stopDelay: Double = 2.0
+    private var _currentSequence: Sequence?
+    
+    private var afterPlayingCurrentSequenceHook: () -> () = {}
     
     
     // CONSTRUCTOR
@@ -27,22 +30,26 @@ class DroneSequenciesManager {
     public func play() -> Void {
         if self._sequencies.count > 0 {
             /* Retrieve the current sequence of the array */
-            let currentSequence = self._sequencies.first
-            self.getDronePilotManager().setSpeed(currentSequence!.speed)
+            self._currentSequence = self._sequencies.first
+            self.getDronePilotManager().setSpeed(self._currentSequence!.speed)
             
             /* Set the state of DroneSequenceManager according to the action of the current sequence */
-            self.setStateFromAction(action: currentSequence?.action ?? DronePilotManager.Action.STOP)
+            
+            self.setStateFromAction(action: self._currentSequence?.action ?? DronePilotManager.Action.STOP)
                 /* Execute the sequence according to the current state */
-                .playCurrentSequence(duration: currentSequence!.duration) {
+                .playCurrentSequence(duration: self._currentSequence!.duration) {
                     /* Execute this code below when the moove is finished */
                     if self._sequencies.count > 0 {
                         self._sequencies.removeFirst()
                     }
                     
+                    self.afterPlayingCurrentSequenceHook()
+                    
                     self.play()
                 }
         } else {
             Debugger.shared.log("The sequence is finished !")
+            self._currentSequence = nil
         }
     }
     
@@ -58,6 +65,11 @@ class DroneSequenciesManager {
         self._dronePilotManager.setSpeed(0.3)
     }
     
+    // HOOKS
+    public func afterPlayingCurrentSequence(hookCallback: @escaping () -> ()) -> DroneSequenciesManager {
+        self.afterPlayingCurrentSequenceHook = hookCallback
+        return self
+    }
     
     // GETTERS
     public func getDronePilotManager() -> DronePilotManager {
@@ -66,6 +78,10 @@ class DroneSequenciesManager {
     
     public func getSequencies() -> [Sequence] {
         return self._sequencies
+    }
+    
+    public func getCurrentSequence() -> Sequence? {
+        return self._currentSequence
     }
     
     
