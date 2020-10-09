@@ -9,10 +9,28 @@
 import Foundation
 
 class Router {
+    static let instance = Router()
+    
+    var totoCalback:((CommunicationData)->())? = nil
+    
     
     func dispatch(data: CommunicationData) -> Void {
         // get la bonne classe
-        //let className = NSClassFromString(data.activity) as
-        
+        switch "t" {
+        case "t":
+            if let c = totoCalback{
+                c(data)
+            }
+        default:
+            break
+        }
+    }
+    
+//    func toto(titi:Int,callBack:@escaping ()->()) {
+//        self.totoCalback = callBack
+//    }
+    
+    func toto(callBack:@escaping (CommunicationData)->()) {
+        self.totoCalback = callBack
     }
 }

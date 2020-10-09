@@ -186,17 +186,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZ7-St-GYV">
-                                <rect key="frame" x="281" y="496" width="76" height="55"/>
+                                <rect key="frame" x="124" y="513" width="204" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Perso"/>
+                                <state key="normal" title="Diriger manuellement le chien"/>
                                 <connections>
                                     <segue destination="qDM-e6-9q2" kind="show" id="mI7-7E-n3E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Y-g5-whm">
-                                <rect key="frame" x="274" y="559" width="60" height="30"/>
+                                <rect key="frame" x="172" y="561" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sandbox"/>
+                                <state key="normal" title="Dog Experience"/>
                                 <connections>
                                     <segue destination="OPi-xt-7VW" kind="show" id="dUP-Hx-g7j"/>
                                 </connections>
@@ -412,7 +412,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HQd-Ag-70a">
-                                <rect key="frame" x="77" y="104" width="240" height="128"/>
+                                <rect key="frame" x="77" y="104" width="240" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -421,15 +421,23 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NnB-tb-eaZ">
-                                <rect key="frame" x="163" y="351" width="49" height="30"/>
+                                <rect key="frame" x="68" y="268" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="debout"/>
                                 <connections>
                                     <action selector="standupClicked:" destination="OPi-xt-7VW" eventType="touchDown" id="858-2l-cme"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxr-83-48K">
+                                <rect key="frame" x="73" y="203" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="STOP"/>
+                                <connections>
+                                    <action selector="stopClicked:" destination="OPi-xt-7VW" eventType="touchDown" id="83S-UU-Taw"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frI-C1-CKY">
-                                <rect key="frame" x="159" y="407" width="56" height="30"/>
+                                <rect key="frame" x="244" y="210" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cherche"/>
                                 <connections>
@@ -437,7 +445,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Aq-0P-htZ">
-                                <rect key="frame" x="154" y="464" width="66" height="30"/>
+                                <rect key="frame" x="244" y="268" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="aux pieds"/>
                                 <connections>
@@ -445,7 +453,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPO-gT-zCn">
-                                <rect key="frame" x="170" y="522" width="35" height="30"/>
+                                <rect key="frame" x="75" y="328" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="assis"/>
                                 <connections>
@@ -453,27 +461,30 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxD-oP-ScX">
-                                <rect key="frame" x="160" y="583" width="55" height="30"/>
+                                <rect key="frame" x="245" y="328" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Trouvé !"/>
                                 <connections>
                                     <action selector="foundClicked:" destination="OPi-xt-7VW" eventType="touchDown" id="M5Z-13-xtR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxr-83-48K">
-                                <rect key="frame" x="168" y="286" width="39" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joo-dk-kfS">
+                                <rect key="frame" x="60" y="395" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="STOP"/>
-                                <connections>
-                                    <action selector="stopClicked:" destination="OPi-xt-7VW" eventType="touchDown" id="83S-UU-Taw"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1SV-fr-gDB">
+                                <rect key="frame" x="60" y="531" width="240" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Y5N-Mh-Ulj"/>
                     </view>
                     <navigationItem key="navigationItem" id="TZS-zJ-ZTx"/>
                     <connections>
+                        <outlet property="cameraView" destination="joo-dk-kfS" id="BDW-lH-yWI"/>
+                        <outlet property="extractedFrameImageView" destination="1SV-fr-gDB" id="xlY-dW-dnT"/>
                         <outlet property="logTextView" destination="HQd-Ag-70a" id="JlK-lS-fKw"/>
                     </connections>
                 </viewController>
