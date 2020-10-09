@@ -29,30 +29,13 @@ class SandboxViewController: UIViewController {
         }
         
         USBBridge.shared.receivedMessage({ (str) in
-            //print("Received \(str)")
-            //Debugger.shared.log("Received \(str)")
-            let jsonData = str.data(using: .utf8)
-            let data: DataWebsocket = try! JSONDecoder().decode(DataWebsocket.self, from: jsonData!)
+            let header = String(str.first!)
             
-            self.logTextView.text = str
+            if header == CommunicationHelper.header {
+                let formatedData: CommunicationData = CommunicationHelper().formatDataToStruct(str)
+                self.logTextView.text = "\(formatedData.device) - \(formatedData.action) - \(formatedData.activity)"
+            }
         })
-        
-        
-        
-    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-    
-    struct DataWebsocket: Decodable {
-        let target, action: String
-    }
-
 }

@@ -131,6 +131,7 @@
 		EDAF1876252F372800216AC0 /* PTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF186B252F372800216AC0 /* PTProtocol.m */; };
 		EDAF1877252F372800216AC0 /* PTChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAF186E252F372800216AC0 /* PTChannel.m */; };
 		EDAF187B252F3F2100216AC0 /* SandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF187A252F3F2100216AC0 /* SandboxViewController.swift */; };
+		EDAF187D25304BC600216AC0 /* CommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF187C25304BC600216AC0 /* CommunicationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +306,7 @@
 		EDAF1873252F372800216AC0 /* PTChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTChannel.h; sourceTree = "<group>"; };
 		EDAF1879252F397400216AC0 /* USBBridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "USBBridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		EDAF187A252F3F2100216AC0 /* SandboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxViewController.swift; sourceTree = "<group>"; };
+		EDAF187C25304BC600216AC0 /* CommunicationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -697,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				88A5D427252CC83A00D281AD /* Debugger.swift */,
+				EDAF187C25304BC600216AC0 /* CommunicationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */,
 				613A72F4237C6A9000119581 /* FFNN+Storage.swift in Sources */,
 				88A5D458252CDCBB00D281AD /* RightStateSequence.swift in Sources */,
+				EDAF187D25304BC600216AC0 /* CommunicationHelper.swift in Sources */,
 				6184E2E521E8AFEB00895FDF /* AutoMoveViewController.swift in Sources */,
 				61C3D673231BF82F00F98C11 /* SpheroV1ToyCore.swift in Sources */,
 				88A5D42E252CCB0F00D281AD /* PilotManager.swift in Sources */,
