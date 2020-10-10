@@ -26,9 +26,6 @@ class ConnectionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-       
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -50,7 +47,7 @@ class ConnectionViewController: UIViewController {
     
     // SPHERO CONNECTION
     @IBAction func connectionSpheroButtonClicked(_ sender: Any) {
-        SharedToyBox.instance.searchForBoltsNamed(["SB-92B2"]) { err in
+        SharedToyBox.instance.searchForBoltsNamed(["SB-2020"]) { err in
             if err == nil {
                 self.connectionStateSpheroLabel.text = "Connected"
             }

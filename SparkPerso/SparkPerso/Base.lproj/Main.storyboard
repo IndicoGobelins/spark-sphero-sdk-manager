@@ -536,8 +536,8 @@
                                         </constraints>
                                         <state key="normal" image="Fleche_Arriere"/>
                                         <connections>
-                                            <action selector="forward:" destination="Ppr-Tr-2jt" eventType="touchUpInside" id="btY-pB-Lqw"/>
-                                            <action selector="frontClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="XzS-bH-XTB"/>
+                                            <action selector="frontClicked:" destination="peF-xK-jga" eventType="touchDown" id="aRt-3n-jxv"/>
+                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="Jj6-DS-uoy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cl-EA-v4S">
@@ -548,8 +548,8 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="Fleche_Avant"/>
                                         <connections>
-                                            <action selector="backClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="hVT-Zx-ZxT"/>
-                                            <action selector="backward:" destination="Ppr-Tr-2jt" eventType="touchUpInside" id="nUH-yg-lmh"/>
+                                            <action selector="backClicked:" destination="peF-xK-jga" eventType="touchDown" id="yQb-Ag-gSH"/>
+                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="ANB-Uh-L1W"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCC-NQ-tuS">
@@ -560,8 +560,8 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="tourne_gauche"/>
                                         <connections>
-                                            <action selector="right:" destination="Ppr-Tr-2jt" eventType="touchUpInside" id="3gi-TT-d8O"/>
-                                            <action selector="rightClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="wno-uN-HIb"/>
+                                            <action selector="rightClicked:" destination="peF-xK-jga" eventType="touchDown" id="qLv-sa-1JV"/>
+                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="ifn-fI-yqb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-Qt-6ao">
@@ -572,8 +572,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="stop"/>
                                         <connections>
-                                            <action selector="stop:" destination="Ppr-Tr-2jt" eventType="touchUpInside" id="LOH-Tu-Jgg"/>
-                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="onn-so-gEh"/>
+                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchDown" id="XRc-Z0-uWl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65j-I4-A17">
@@ -584,8 +583,8 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="tourne_droite"/>
                                         <connections>
-                                            <action selector="left:" destination="Ppr-Tr-2jt" eventType="touchUpInside" id="nGx-hT-2ai"/>
-                                            <action selector="leftClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="A00-OT-n2m"/>
+                                            <action selector="leftClicked:" destination="peF-xK-jga" eventType="touchDown" id="lWe-hE-s8f"/>
+                                            <action selector="stopClicked:" destination="peF-xK-jga" eventType="touchUpInside" id="QKW-4i-Pib"/>
                                         </connections>
                                     </button>
                                 </subviews>
