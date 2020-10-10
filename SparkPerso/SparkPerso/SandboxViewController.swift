@@ -14,12 +14,11 @@ import Foundation
 class SandboxViewController: UIViewController {
     
     @IBOutlet weak var logTextView: UITextView!
-    
     let prev1 = VideoPreviewer()
     @IBOutlet weak var cameraView: UIView!
-    
     let detector: CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
     @IBOutlet weak var extractedFrameImageView: UIImageView!
+    private var _stopTimer: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +43,8 @@ class SandboxViewController: UIViewController {
         }
     }
     
-//    func getCamera() -> DJICamera? {
-//        // Check if it's an aircraft
-//        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-//             return mySpark.camera
-//        }
-//        return nil
-//    }
-    
-//    func lookUnder(_ sender: Any) {
-//        GimbalManager.shared.lookUnder()
-//    }
-    
     func startQrcodeDetection() {
+        self._stopTimer = false
          Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.prev1?.snapshotThumnnail { (image) in
                 
@@ -75,8 +63,16 @@ class SandboxViewController: UIViewController {
                         }
                     }
                 }
+                
+                if self._stopTimer {
+                    timer.invalidate()
+                }
             }
         }
+    }
+    
+    @IBAction func stopQrcodeDetection(_ sender: Any) {
+        self._stopTimer = true
     }
     
     func setupVideoPreview() {

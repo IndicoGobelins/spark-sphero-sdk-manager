@@ -11,14 +11,14 @@ import Foundation
 class DogActivity: BaseActivity {
     
     private var _droneSequenciesManager: DroneSequenciesManager
-    private let NB_MAX_BOWL: Int = 5
+    private let NB_MAX_BOWL: Int = 3
     private let ACTION_SEARCH: DronePilotManager.Action = DronePilotManager.Action.LEFT
     private let ACTION_BACK: DronePilotManager.Action = DronePilotManager.Action.RIGHT
     private let SEQUENCE_SPEED: Float = 0.2
     private let SEQUENCE_DURATION: Double = 2
     private var countMoves: Int = 0
     private var _state: DogActivityState! = nil
-    public var isQrcodeDetectionActivated: Bool = true
+    public var isQrcodeDetectionActivated: Bool = false
     public static var shared: DogActivity = DogActivity()
     public static let QRCODE_MESSAGE_VALID = "indico"
     
@@ -28,12 +28,14 @@ class DogActivity: BaseActivity {
     
     public func standUpAction() -> Void {
         Debugger.shared.log("dog activity : stand up")
+        DroneCameraManager.shared.lookUnder()
         self._droneSequenciesManager.getDronePilotManager().takeOff()
     }
     
     public func searchAction() -> Void {
         Debugger.shared.log("dog activity : search")
         self.isQrcodeDetectionActivated = true
+        
         self._droneSequenciesManager
             .setSequencies(self._getSequenceForSearchAction())
             .afterPlayingCurrentSequence {
