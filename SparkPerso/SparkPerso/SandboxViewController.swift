@@ -15,10 +15,14 @@ class SandboxViewController: UIViewController {
     
     @IBOutlet weak var logTextView: UITextView!
     
+    // camera
     let prev1 = VideoPreviewer()
     @IBOutlet weak var cameraView: UIView!
-    
     @IBOutlet weak var extractedFrameImageView: UIImageView!
+    
+    // scanner qr code
+    private var captureSession: AVCaptureSession
+    private var codeOutputHandler: (_ code: String) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,19 @@ class SandboxViewController: UIViewController {
             print(data)
         }
         // Do any additional setup after loading the view.
+    }
+    
+    
+    // ====== SCANNER QRCODE
+    private func createCaptureSession() -> AVCaptureSession? {
+        let captureSession = AVCaptureSession
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return nil}
+        
+        do {
+            
+        } catch {
+            return nil
+        }
     }
     
     
