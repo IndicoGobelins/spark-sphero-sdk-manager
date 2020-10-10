@@ -18,15 +18,13 @@ class SandboxViewController: UIViewController {
     let prev1 = VideoPreviewer()
     @IBOutlet weak var cameraView: UIView!
     
+    let detector: CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
     @IBOutlet weak var extractedFrameImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Router.instance.toto { data in
-            print(data)
-        }
-        // Do any additional setup after loading the view.
+        DroneCameraManager.shared.onStartDetectQrcode(hookCallback: self.startQrcodeDetection)
+        
     }
     
     
@@ -35,10 +33,10 @@ class SandboxViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let _ = DJISDKManager.product() {
-            if let camera = self.getCamera(){
+            if let camera = DroneCameraManager.shared.getCamera(){
                 camera.delegate = self
                 self.setupVideoPreview()
-                self.takePictureWithTimer()
+                //self.takePictureWithTimer()
             }
             
             GimbalManager.shared.setup(withDuration: 1.0, defaultPitch: -28.0)
@@ -46,31 +44,36 @@ class SandboxViewController: UIViewController {
         }
     }
     
-    func getCamera() -> DJICamera? {
-        // Check if it's an aircraft
-        if let mySpark = DJISDKManager.product() as? DJIAircraft {
-             return mySpark.camera
-        }
-        return nil
-    }
+//    func getCamera() -> DJICamera? {
+//        // Check if it's an aircraft
+//        if let mySpark = DJISDKManager.product() as? DJIAircraft {
+//             return mySpark.camera
+//        }
+//        return nil
+//    }
     
-    func lookUnder(_ sender: Any) {
-        GimbalManager.shared.lookUnder()
-    }
+//    func lookUnder(_ sender: Any) {
+//        GimbalManager.shared.lookUnder()
+//    }
     
-    func takePictureWithTimer() {
+    func startQrcodeDetection() {
          Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.prev1?.snapshotThumnnail { (image) in
                 
                 if let img = image {
-                    print(img.size)
                     
                     //display image
                     self.extractedFrameImageView.image = img
+                    let ciimg: CIImage = CIImage(image: img)!
+                    let features = self.detector.features(in: ciimg)
                     
-                    // TODO : analyse img if there is qrcode
-                    // code
-                    
+                    for feature in features as! [CIQRCodeFeature] {
+                        Debugger.shared.log("Message du QRCODE : \(String(feature.messageString!))")
+                        if feature.messageString == DogActivity.QRCODE_MESSAGE_VALID && DogActivity.shared.isQrcodeDetectionActivated {
+                            DroneSequenciesManager.shared.clearSequencies()
+                            DogActivity.shared.isQrcodeDetectionActivated = false
+                        }
+                    }
                 }
             }
         }
@@ -127,16 +130,21 @@ class SandboxViewController: UIViewController {
         DogActivity.shared.sitDownAction()
     }
     
-    
     @IBAction func foundClicked(_ sender: Any) {
         DroneSequenciesManager.shared.clearSequencies()
     }
-    
     
     @IBAction func stopClicked(_ sender: Any) {
         DronePilotManager.shared.stop()
     }
     
+    @IBAction func startDetectionClicked(_ sender: Any) {
+        DroneCameraManager.shared.startDetectQrcode()
+    }
+    
+    @IBAction func cameraDownClicked(_ sender: Any) {
+        DroneCameraManager.shared.lookUnder()
+    }
 }
 
 extension SandboxViewController:DJIVideoFeedListener {

@@ -12,13 +12,15 @@ class DogActivity: BaseActivity {
     
     private var _droneSequenciesManager: DroneSequenciesManager
     private let NB_MAX_BOWL: Int = 5
-    private let ACTION_SEARCH: DronePilotManager.Action = DronePilotManager.Action.FORWARD
-    private let ACTION_BACK: DronePilotManager.Action = DronePilotManager.Action.BACKWARD
+    private let ACTION_SEARCH: DronePilotManager.Action = DronePilotManager.Action.LEFT
+    private let ACTION_BACK: DronePilotManager.Action = DronePilotManager.Action.RIGHT
     private let SEQUENCE_SPEED: Float = 0.2
     private let SEQUENCE_DURATION: Double = 2
     private var countMoves: Int = 0
     private var _state: DogActivityState! = nil
+    public var isQrcodeDetectionActivated: Bool = true
     public static var shared: DogActivity = DogActivity()
+    public static let QRCODE_MESSAGE_VALID = "indico"
     
     override init() {
         self._droneSequenciesManager = DroneSequenciesManager.shared
@@ -31,6 +33,7 @@ class DogActivity: BaseActivity {
     
     public func searchAction() -> Void {
         Debugger.shared.log("dog activity : search")
+        self.isQrcodeDetectionActivated = true
         self._droneSequenciesManager
             .setSequencies(self._getSequenceForSearchAction())
             .afterPlayingCurrentSequence {
@@ -49,6 +52,7 @@ class DogActivity: BaseActivity {
     
     public func backAction() -> Void {
         Debugger.shared.log("dog activity : back")
+        self.isQrcodeDetectionActivated = false
         self._droneSequenciesManager
             .setSequencies(self._getSequenceForBackAction())
             .afterPlayingCurrentSequence {

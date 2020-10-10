@@ -20,14 +20,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "CB2F5932-E7C3-4660-85AF-7805965481A8 - 8aad45915811f438"
+                  uuid = "CB2F5932-E7C3-4660-85AF-7805965481A8 - ae28db1866532f6c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SparkPerso.DroneSequenciesManager.deinit"
                   moduleName = "SparkPerso"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/drone-sphero-starter/SparkPerso/SparkPerso/Core/Managers/Sequencies/DroneSequenciesManager.swift"
+                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/spark-sphero-sdk-manager/SparkPerso/SparkPerso/Core/Managers/Sequencies/DroneSequenciesManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -35,14 +35,14 @@
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  uuid = "CB2F5932-E7C3-4660-85AF-7805965481A8 - 2321e0b49369960d"
+                  uuid = "CB2F5932-E7C3-4660-85AF-7805965481A8 - 7a47e3dad2b4d59"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SparkPerso.DroneSequenciesManager.__deallocating_deinit"
                   moduleName = "SparkPerso"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/drone-sphero-starter/SparkPerso/SparkPerso/Core/Managers/Sequencies/DroneSequenciesManager.swift"
+                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/spark-sphero-sdk-manager/SparkPerso/SparkPerso/Core/Managers/Sequencies/DroneSequenciesManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
