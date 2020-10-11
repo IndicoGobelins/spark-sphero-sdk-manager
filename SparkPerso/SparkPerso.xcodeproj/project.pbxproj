@@ -139,6 +139,9 @@
 		EDAF188D2530669B00216AC0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188C2530669B00216AC0 /* Router.swift */; };
 		EDAF18902530921D00216AC0 /* DroneCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188F2530921D00216AC0 /* DroneCameraManager.swift */; };
 		EDAF18972532E52100216AC0 /* SpheroLedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF18962532E52100216AC0 /* SpheroLedManager.swift */; };
+		EDAF189A2533038500216AC0 /* patternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF18992533038500216AC0 /* patternsManager.swift */; };
+		EDAF189C253303FB00216AC0 /* heartPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF189B253303FB00216AC0 /* heartPattern.swift */; };
+		EDAF189E253307B000216AC0 /* starPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF189D253307B000216AC0 /* starPattern.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -321,6 +324,9 @@
 		EDAF188C2530669B00216AC0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EDAF188F2530921D00216AC0 /* DroneCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneCameraManager.swift; sourceTree = "<group>"; };
 		EDAF18962532E52100216AC0 /* SpheroLedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpheroLedManager.swift; sourceTree = "<group>"; };
+		EDAF18992533038500216AC0 /* patternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patternsManager.swift; sourceTree = "<group>"; };
+		EDAF189B253303FB00216AC0 /* heartPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heartPattern.swift; sourceTree = "<group>"; };
+		EDAF189D253307B000216AC0 /* starPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starPattern.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -862,9 +868,20 @@
 		EDAF18932532E4F900216AC0 /* SpheroLed */ = {
 			isa = PBXGroup;
 			children = (
+				EDAF18982533030F00216AC0 /* Patterns */,
 				EDAF18962532E52100216AC0 /* SpheroLedManager.swift */,
 			);
 			path = SpheroLed;
+			sourceTree = "<group>";
+		};
+		EDAF18982533030F00216AC0 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				EDAF18992533038500216AC0 /* patternsManager.swift */,
+				EDAF189B253303FB00216AC0 /* heartPattern.swift */,
+				EDAF189D253307B000216AC0 /* starPattern.swift */,
+			);
+			path = Patterns;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1062,6 +1079,7 @@
 				613A72F2237C6A9000119581 /* Random.swift in Sources */,
 				613A72F7237EDA0600119581 /* ImageResize.swift in Sources */,
 				612304BE200BDCEE00F98395 /* TakeOffAndLandingViewController.swift in Sources */,
+				EDAF189E253307B000216AC0 /* starPattern.swift in Sources */,
 				6184E2D921E8ABB000895FDF /* DirectionSequence.swift in Sources */,
 				612F95DE2369C04500DE29AA /* SocketIOManager.swift in Sources */,
 				EDAF18972532E52100216AC0 /* SpheroLedManager.swift in Sources */,
@@ -1071,6 +1089,7 @@
 				88A5D437252CCB5C00D281AD /* ThreeDimDirections.swift in Sources */,
 				61EA75412359F08200C3E1E5 /* SpheroTP1ViewController.swift in Sources */,
 				61027A29251B79810065D72D /* FirstMoveViewController.swift in Sources */,
+				EDAF189C253303FB00216AC0 /* heartPattern.swift in Sources */,
 				61C3D687231BF82F00F98C11 /* SensorCommandResponse.swift in Sources */,
 				61C3D684231BF82F00F98C11 /* VersionsCommandResponse.swift in Sources */,
 				61C3D677231BF82F00F98C11 /* SpheroV2Toy.swift in Sources */,
@@ -1164,6 +1183,7 @@
 				613A72EF237C6A9000119581 /* Operations.swift in Sources */,
 				EDAF187B252F3F2100216AC0 /* SandboxViewController.swift in Sources */,
 				88A5D428252CC83A00D281AD /* Debugger.swift in Sources */,
+				EDAF189A2533038500216AC0 /* patternsManager.swift in Sources */,
 				613A72EE237C6A9000119581 /* FFNN+Metal.swift in Sources */,
 				61DAFC0F200B9AB3001CB2E2 /* ConnectionViewController.swift in Sources */,
 				61C3D683231BF82F00F98C11 /* CommandV2.swift in Sources */,

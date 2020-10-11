@@ -722,11 +722,19 @@ Current Heading: 0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU1-B0-F5L">
-                                <rect key="frame" x="130" y="357" width="74" height="30"/>
+                                <rect key="frame" x="129" y="422" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear draw"/>
                                 <connections>
                                     <action selector="clearClicked:" destination="csL-6f-fr4" eventType="touchDown" id="Hmv-Dg-5ee"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmg-WM-e3t">
+                                <rect key="frame" x="133" y="357" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw Star"/>
+                                <connections>
+                                    <action selector="starClicked:" destination="csL-6f-fr4" eventType="touchDown" id="bkV-b0-bJl"/>
                                 </connections>
                             </button>
                         </subviews>

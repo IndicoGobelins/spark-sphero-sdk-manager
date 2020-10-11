@@ -61,7 +61,10 @@ class SpheroLedsViewController: UIViewController {
  
 
     @IBAction func heartClicked(_ sender: Any) {
-        SpheroLedManager.shared.drawPatternInScreen(pattern: "heart")
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "heart")
+    }
+    @IBAction func starClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "star")
     }
     
     @IBAction func clearClicked(_ sender: Any) {
