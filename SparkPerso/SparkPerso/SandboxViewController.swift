@@ -13,7 +13,6 @@ import Foundation
 
 class SandboxViewController: UIViewController {
     
-    @IBOutlet weak var logTextView: UITextView!
     let prev1 = VideoPreviewer()
     @IBOutlet weak var cameraView: UIView!
     let detector: CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
@@ -99,6 +98,10 @@ class SandboxViewController: UIViewController {
         connectBridging()
     }
     
+    @IBAction func stopBridgingClick(_ sender: Any) {
+        self.disconnectBridging()
+    }
+    
     /**
      Established USB connection with NodeJS server and registered all events routing
      */
@@ -133,7 +136,6 @@ class SandboxViewController: UIViewController {
             }
         })
     }
-    
     /**
      Close connection with NodeJS server
      */
