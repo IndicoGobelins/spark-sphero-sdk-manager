@@ -26,13 +26,13 @@ class DogActivity: BaseActivity {
         self._droneSequenciesManager = DroneSequenciesManager.shared
     }
     
-    public func standUpAction() -> Void {
+    public func standUpAction(device: Router.Device) -> Void {
         Debugger.shared.log("dog activity : stand up")
         DroneCameraManager.shared.lookUnder()
         self._droneSequenciesManager.getDronePilotManager().takeOff()
     }
     
-    public func searchAction() -> Void {
+    public func searchAction(device: Router.Device) -> Void {
         Debugger.shared.log("dog activity : search")
         self.isQrcodeDetectionActivated = true
         
@@ -52,7 +52,7 @@ class DogActivity: BaseActivity {
             .play()
     }
     
-    public func backAction() -> Void {
+    public func backAction(device: Router.Device) -> Void {
         Debugger.shared.log("dog activity : back")
         self.isQrcodeDetectionActivated = false
         self._droneSequenciesManager
@@ -71,7 +71,7 @@ class DogActivity: BaseActivity {
             .play()
     }
     
-    public func sitDownAction() -> Void {
+    public func sitDownAction(device: Router.Device) -> Void {
         Debugger.shared.log("dog activity : sit down")
         self._droneSequenciesManager.getDronePilotManager().landing()
     }

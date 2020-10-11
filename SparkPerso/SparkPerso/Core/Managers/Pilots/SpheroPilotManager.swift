@@ -84,6 +84,19 @@ class SpheroPilotManager: TwoDimPilotManager {
         self._referenceHeading = referenceheading
     }
     
+    public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroPilotManager {
+        switch sphero {
+        case .SPHERO1:
+            self.connectFirstSphero()
+        case .SPHERO2:
+            self.connectSecondSphero()
+        default:
+            self.connectFirstSphero()
+        }
+        
+        return self
+    }
+    
     // GETTERS
     public func getSpeed() -> Double {
         return self._speed

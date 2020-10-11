@@ -43,6 +43,9 @@ class SandboxViewController: UIViewController {
         }
     }
     
+    /**
+     Trigger timer to take a photo from CameraView and read QRCODE on this picture
+     */
     func startQrcodeDetection() {
         self._stopTimer = false
          Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
@@ -71,6 +74,9 @@ class SandboxViewController: UIViewController {
         }
     }
     
+    /**
+     Stop QRCODE detection
+     */
     @IBAction func stopQrcodeDetection(_ sender: Any) {
         self._stopTimer = true
     }
@@ -90,40 +96,68 @@ class SandboxViewController: UIViewController {
     // ====== BRIDGE
     
     @IBAction func bridgeClicked(_ sender: Any) {
-        Debugger.shared.log("sandbooooox")
-        
+        connectBridging()
+    }
+    
+    /**
+     Established USB connection with NodeJS server and registered all events routing
+     */
+    public func connectBridging() -> Void {
         USBBridge.shared.connect {
+            Router.shared
+                // Declared routes for DOG ACTIVITY
+                .on(activity: Router.Activity.DOG_ACTIVITY, action: Router.Action.STANDUP, executedCallback: DogActivity.shared.standUpAction)
+                .on(activity: Router.Activity.DOG_ACTIVITY, action: Router.Action.SITDOWN, executedCallback: DogActivity.shared.sitDownAction)
+                .on(activity: Router.Activity.DOG_ACTIVITY, action: Router.Action.SEARCH, executedCallback: DogActivity.shared.searchAction)
+                .on(activity: Router.Activity.DOG_ACTIVITY, action: Router.Action.GOBACK, executedCallback: DogActivity.shared.backAction)
             
+                // Declared routes for CLUES ACTIVITY
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.FORWARD, executedCallback: CollectCluesActivity.shared.goForwardAction)
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.BACKWARD, executedCallback: CollectCluesActivity.shared.goBackwardAction)
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.LEFT, executedCallback: CollectCluesActivity.shared.goLeftAction)
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.RIGHT, executedCallback: CollectCluesActivity.shared.goRightAction)
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.COLLECT, executedCallback: CollectCluesActivity.shared.collectAction)
+                .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.STOP, executedCallback: CollectCluesActivity.shared.stopAction)
         }
         
         USBBridge.shared.receivedMessage({ (str) in
             let header = String(str.first!)
             
             if header == CommunicationHelper.header {
+                Debugger.shared.log("Nouveau message en provenance du serveur NodeJS -> \(str)")
                 let formatedData: CommunicationData = CommunicationHelper().formatDataToStruct(str)
-                // TODO : dispatcher les methodes a éxécuter
+                    
+                    // Dispatch incomming data
+                Router.shared.dispatch(data: formatedData)
+                
             }
         })
+    }
     
+    /**
+     Close connection with NodeJS server
+     */
+    public func disconnectBridging() -> Void {
+        USBBridge.shared.disconnect()
     }
     
     
     // ====== ACTIONS
     
     @IBAction func standupClicked(_ sender: Any) {
-        DogActivity.shared.standUpAction()
+        DogActivity.shared.standUpAction(device: Router.Device.DRONE)
     }
     
     @IBAction func searchClicked(_ sender: Any) {
-        DogActivity.shared.searchAction()
+        DogActivity.shared.searchAction(device: Router.Device.DRONE)
     }
     
     @IBAction func backClicked(_ sender: Any) {
-        DogActivity.shared.backAction()
+        DogActivity.shared.backAction(device: Router.Device.DRONE)
     }
     
     @IBAction func sitdownClicked(_ sender: Any) {
-        DogActivity.shared.sitDownAction()
+        DogActivity.shared.sitDownAction(device: Router.Device.DRONE)
     }
     
     @IBAction func foundClicked(_ sender: Any) {

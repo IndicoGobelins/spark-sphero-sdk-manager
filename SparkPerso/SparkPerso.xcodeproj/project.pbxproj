@@ -123,6 +123,7 @@
 		88A5D465252CDDC300D281AD /* UpStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D464252CDDC300D281AD /* UpStateSequence.swift */; };
 		88A5D468252CDDE000D281AD /* DownStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D467252CDDE000D281AD /* DownStateSequence.swift */; };
 		88A5D46B252CDE0D00D281AD /* StopStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */; };
+		88EE2D36253216DE00044649 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE2D35253216DE00044649 /* BaseController.swift */; };
 		B25DCA3E206348505DAC1430 /* Pods_SparkPerso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */; };
 		EDAF181C252DE3C100216AC0 /* TakeOffStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */; };
 		EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */; };
@@ -296,6 +297,7 @@
 		88A5D464252CDDC300D281AD /* UpStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpStateSequence.swift; sourceTree = "<group>"; };
 		88A5D467252CDDE000D281AD /* DownStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownStateSequence.swift; sourceTree = "<group>"; };
 		88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStateSequence.swift; sourceTree = "<group>"; };
+		88EE2D35253216DE00044649 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SparkPerso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeOffStateSequence.swift; sourceTree = "<group>"; };
 		EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingStateSequence.swift; sourceTree = "<group>"; };
@@ -768,6 +770,14 @@
 			path = States;
 			sourceTree = "<group>";
 		};
+		88EE2D32253216C800044649 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				88EE2D35253216DE00044649 /* BaseController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		9DE103B774E7C0D0D915A0FF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,6 +853,7 @@
 		EDAF18892530659F00216AC0 /* Route */ = {
 			isa = PBXGroup;
 			children = (
+				88EE2D32253216C800044649 /* Controllers */,
 				EDAF188C2530669B00216AC0 /* Router.swift */,
 			);
 			path = Route;
@@ -1147,6 +1158,7 @@
 				61C3D675231BF82F00F98C11 /* SensorControlV2.swift in Sources */,
 				61C3D67D231BF82F00F98C11 /* CBUUID+SpheroUUIDs.swift in Sources */,
 				61C3D670231BF82F00F98C11 /* SPRKToy.swift in Sources */,
+				88EE2D36253216DE00044649 /* BaseController.swift in Sources */,
 				61C3D672231BF82F00F98C11 /* SpheroV1Toy.swift in Sources */,
 				612304B0200BB6A000F98395 /* CameraViewController.swift in Sources */,
 				613A72EF237C6A9000119581 /* Operations.swift in Sources */,
