@@ -50,16 +50,11 @@ class ConnectionViewController: UIViewController {
     
     // SPHERO CONNECTION
     @IBAction func connectionSpheroButtonClicked(_ sender: Any) {
-        SharedToyBox.instance.searchForBoltsNamed(["SB-92B2"]) { err in
+        SharedToyBox.instance.searchForBoltsNamed(["SB-6C4C"]) { err in
             if err == nil {
                 self.connectionStateSpheroLabel.text = "Connected"
             }
         }
-    }
-    
-    // Public entry to test some code
-    @IBAction func onClickSandboxButton(_ sender: Any) {
-
     }
     
 }

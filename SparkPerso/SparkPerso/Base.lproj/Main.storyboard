@@ -713,6 +713,22 @@ Current Heading: 0</string>
                                     <action selector="sendTextClicked:" destination="csL-6f-fr4" eventType="touchUpInside" id="GmC-ce-1TI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-1O-OoS">
+                                <rect key="frame" x="129" y="308" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw heart"/>
+                                <connections>
+                                    <action selector="heartClicked:" destination="csL-6f-fr4" eventType="touchDown" id="tzE-vN-CD0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU1-B0-F5L">
+                                <rect key="frame" x="130" y="357" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear draw"/>
+                                <connections>
+                                    <action selector="clearClicked:" destination="csL-6f-fr4" eventType="touchDown" id="Hmv-Dg-5ee"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
