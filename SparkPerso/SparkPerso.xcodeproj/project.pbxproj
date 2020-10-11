@@ -123,7 +123,6 @@
 		88A5D465252CDDC300D281AD /* UpStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D464252CDDC300D281AD /* UpStateSequence.swift */; };
 		88A5D468252CDDE000D281AD /* DownStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D467252CDDE000D281AD /* DownStateSequence.swift */; };
 		88A5D46B252CDE0D00D281AD /* StopStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */; };
-		88EE2D36253216DE00044649 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE2D35253216DE00044649 /* BaseController.swift */; };
 		B25DCA3E206348505DAC1430 /* Pods_SparkPerso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */; };
 		EDAF181C252DE3C100216AC0 /* TakeOffStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */; };
 		EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */; };
@@ -136,7 +135,6 @@
 		EDAF188025305AC000216AC0 /* BaseActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF187F25305AC000216AC0 /* BaseActivity.swift */; };
 		EDAF188225305AEA00216AC0 /* DogActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188125305AEA00216AC0 /* DogActivity.swift */; };
 		EDAF188425305B0C00216AC0 /* CollectCluesActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188325305B0C00216AC0 /* CollectCluesActivity.swift */; };
-		EDAF188825305D5300216AC0 /* DogActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188725305D5300216AC0 /* DogActivityState.swift */; };
 		EDAF188D2530669B00216AC0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188C2530669B00216AC0 /* Router.swift */; };
 		EDAF18902530921D00216AC0 /* DroneCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAF188F2530921D00216AC0 /* DroneCameraManager.swift */; };
 /* End PBXBuildFile section */
@@ -297,7 +295,6 @@
 		88A5D464252CDDC300D281AD /* UpStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpStateSequence.swift; sourceTree = "<group>"; };
 		88A5D467252CDDE000D281AD /* DownStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownStateSequence.swift; sourceTree = "<group>"; };
 		88A5D46A252CDE0D00D281AD /* StopStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStateSequence.swift; sourceTree = "<group>"; };
-		88EE2D35253216DE00044649 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		9574723689CDFD5A62E8841B /* Pods_SparkPerso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SparkPerso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAF181B252DE3C100216AC0 /* TakeOffStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeOffStateSequence.swift; sourceTree = "<group>"; };
 		EDAF181F252DE40C00216AC0 /* LandingStateSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingStateSequence.swift; sourceTree = "<group>"; };
@@ -318,7 +315,6 @@
 		EDAF187F25305AC000216AC0 /* BaseActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivity.swift; sourceTree = "<group>"; };
 		EDAF188125305AEA00216AC0 /* DogActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogActivity.swift; sourceTree = "<group>"; };
 		EDAF188325305B0C00216AC0 /* CollectCluesActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCluesActivity.swift; sourceTree = "<group>"; };
-		EDAF188725305D5300216AC0 /* DogActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogActivityState.swift; sourceTree = "<group>"; };
 		EDAF188C2530669B00216AC0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EDAF188F2530921D00216AC0 /* DroneCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneCameraManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -770,14 +766,6 @@
 			path = States;
 			sourceTree = "<group>";
 		};
-		88EE2D32253216C800044649 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				88EE2D35253216DE00044649 /* BaseController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		9DE103B774E7C0D0D915A0FF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,7 +814,6 @@
 		EDAF187E25305A7D00216AC0 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				EDAF188525305D3000216AC0 /* States */,
 				EDAF187F25305AC000216AC0 /* BaseActivity.swift */,
 				EDAF188125305AEA00216AC0 /* DogActivity.swift */,
 				EDAF188325305B0C00216AC0 /* CollectCluesActivity.swift */,
@@ -834,26 +821,9 @@
 			path = Activities;
 			sourceTree = "<group>";
 		};
-		EDAF188525305D3000216AC0 /* States */ = {
-			isa = PBXGroup;
-			children = (
-				EDAF188625305D3700216AC0 /* DogActivity */,
-			);
-			path = States;
-			sourceTree = "<group>";
-		};
-		EDAF188625305D3700216AC0 /* DogActivity */ = {
-			isa = PBXGroup;
-			children = (
-				EDAF188725305D5300216AC0 /* DogActivityState.swift */,
-			);
-			path = DogActivity;
-			sourceTree = "<group>";
-		};
 		EDAF18892530659F00216AC0 /* Route */ = {
 			isa = PBXGroup;
 			children = (
-				88EE2D32253216C800044649 /* Controllers */,
 				EDAF188C2530669B00216AC0 /* Router.swift */,
 			);
 			path = Route;
@@ -1147,7 +1117,6 @@
 				6117056921F75E4D009F47E4 /* Spark.swift in Sources */,
 				EDAF18902530921D00216AC0 /* DroneCameraManager.swift in Sources */,
 				6184E2DB21E8ABB300895FDF /* CGPoints+Extensions.swift in Sources */,
-				EDAF188825305D5300216AC0 /* DogActivityState.swift in Sources */,
 				61C3D693231BFE6900F98C11 /* SpheroDirectionViewController.swift in Sources */,
 				612304AA200BABF200F98395 /* ProductCommunicationManager.swift in Sources */,
 				61C3D691231BFD5F00F98C11 /* SpheroAimingViewController.swift in Sources */,
@@ -1158,7 +1127,6 @@
 				61C3D675231BF82F00F98C11 /* SensorControlV2.swift in Sources */,
 				61C3D67D231BF82F00F98C11 /* CBUUID+SpheroUUIDs.swift in Sources */,
 				61C3D670231BF82F00F98C11 /* SPRKToy.swift in Sources */,
-				88EE2D36253216DE00044649 /* BaseController.swift in Sources */,
 				61C3D672231BF82F00F98C11 /* SpheroV1Toy.swift in Sources */,
 				612304B0200BB6A000F98395 /* CameraViewController.swift in Sources */,
 				613A72EF237C6A9000119581 /* Operations.swift in Sources */,

@@ -1,22 +1,57 @@
 # SparkStarterKitForStudents
-Quick and dirty starter kit for students: Use some basic commands of the DJI's SDK
 
-1) Download the project and open the .xcworkspace
-2) Create an Account https://account.dji.com/login?appId=dji_sdk&backUrl=https%3A%2F%2Fdeveloper.dji.com%2Fuser&locale=en_US. 
 
-Add your custom product key to info.plist: https://developer.dji.com/mobile-sdk/documentation/quick-start/index.html#generate-an-app-key
+## Note rendu intermédiaire - 3/3
 
-![Screenshot](https://github.com/AlbanPerli/SparkStarterKitForStudents/blob/master/Sans%20titre.jpg)
+### Description
+La partie IOS nous sert d'interface pour communiquer avec le drone et nos 3 spheros. Le code est en swift et nous utilisons des SDK pour faciliter notre développement.
 
-3) Use the accelerometer carefully... ;-)
+### Structure
+* L'ensemble de nos classes métiers se trouve dans le dossier `SparkPerso/SparkPerso/Core`. Voici un aperçu de sa structure :
+```
+.
+├── Activities
+│   ├── BaseActivity.swift
+│   ├── CollectCluesActivity.swift
+│   └── DogActivity.swift
+├── Helpers
+│   ├── CommunicationHelper.swift
+│   └── Debugger.swift
+├── Managers
+│   ├── Camera
+│   │   └── DroneCameraManager.swift
+│   ├── Pilots
+│   │   ├── Contracts
+│   │   │   ├── PilotManager.swift
+│   │   │   ├── ThreeDimDirections.swift
+│   │   │   ├── ThreeDimPilotManager.swift
+│   │   │   ├── TwoDimDirections.swift
+│   │   │   └── TwoDimPilotManager.swift
+│   │   ├── DronePilotManager.swift
+│   │   └── SpheroPilotManager.swift
+│   └── Sequencies
+│       ├── DroneSequenciesManager.swift
+│       └── States
+│           ├── BackwardStateSequence.swift
+│           ├── DownStateSequence.swift
+│           ├── ForwardStateSequence.swift
+│           ├── LandingStateSequence.swift
+│           ├── LeftStateSequence.swift
+│           ├── RightStateSequence.swift
+│           ├── StateSequence.swift
+│           ├── StopStateSequence.swift
+│           ├── TakeOffStateSequence.swift
+│           └── UpStateSequence.swift
+└── Route
+    └── Router.swift 
+```
 
-4) Use it as a starter then, write quality code, not like me!
+* Nous avons représenté un manager pour un besoin métier spécifique (exemple: piloter la sphéro -> `SpheroPilotManager`).
+* Pour que l'application IOS récupère bien les messages en provenance du serveur NodeJS, il faut que la vue `SandboxViewController` soit active puisque c'est dans celle-ci que nous initialisons le Bridge USB ainsi que la classe `Router` du fichier `Core/Route/Router.swift`
+* Lorsque le Router récupère les messages en provenance du serveur NodeJS, il va exécuter l'action de la bonne activité en passant en paramètre le device ciblé.
 
-Specs:
-https://www.dji.com/spark/info#specs
-
-Sources:
-https://github.com/dji-sdk/Mobile-SDK-iOS
-
-Doc:
-https://developer.dji.com/api-reference/ios-api/Components/SDKManager/DJISDKManager.html
+### Etape pour mettre en place toute l'architecture
+1. Allumer le serveur NodeJS
+2. Build l'application IOS
+3. Aller dans la vue SandBoxViewController et appuyer sur le bouton `Bridge`
+4. Se connecter aux interfaces Web et lancer les activités

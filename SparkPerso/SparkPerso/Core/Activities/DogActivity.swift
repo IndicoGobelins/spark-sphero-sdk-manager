@@ -17,7 +17,6 @@ class DogActivity: BaseActivity {
     private let SEQUENCE_SPEED: Float = 0.2
     private let SEQUENCE_DURATION: Double = 2
     private var countMoves: Int = 0
-    private var _state: DogActivityState! = nil
     public var isQrcodeDetectionActivated: Bool = false
     public static var shared: DogActivity = DogActivity()
     public static let QRCODE_MESSAGE_VALID = "indico"
