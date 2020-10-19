@@ -22,8 +22,10 @@ class PatternsManager {
         return [[]]
     }
     
+    // La couleur noire est en fait une "sans couleur" pour l'écran du sphero
+    
     // Build one line mtrix with just one color
-    func createOnColorLine(color: UIColor) -> [UIColor] {
+    func createOneColorLine(color: UIColor) -> [UIColor] {
         var line = [UIColor]()
         for _ in 0...8-1 {
             line.append(color)

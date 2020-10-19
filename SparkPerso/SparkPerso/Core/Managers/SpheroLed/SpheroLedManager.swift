@@ -36,6 +36,10 @@ class SpheroLedManager {
         SharedToyBox.instance.bolts.map{ $0.clearMatrix() }
     }
     
+    public func getRandomChoicesPatterns() -> [String] {
+        return ["heart","car","star"]
+    }
+    
     
     // set the pattern's matrix
     private func setPattern(pattern: String) -> Void {
@@ -44,6 +48,10 @@ class SpheroLedManager {
                 self._pattern = HeartPattern(self)
             case "star":
                 self._pattern = StarPattern(self)
+            case "car":
+                self._pattern = CarPattern(self)
+            case "stop":
+                self._pattern = StopPattern(self)
             default:
                 self._pattern = nil
         }

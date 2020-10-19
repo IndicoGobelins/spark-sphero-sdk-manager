@@ -27,8 +27,8 @@ class HeartPattern: PatternsManager {
                 Combinaison(nbPixels: 2, color: UIColor.red),
                 Combinaison(nbPixels: 1, color: UIColor.white)
             ]),
-            self.createOnColorLine(color: UIColor.red),
-            self.createOnColorLine(color: UIColor.red),
+            self.createOneColorLine(color: UIColor.red),
+            self.createOneColorLine(color: UIColor.red),
             self.createColorsLine([
                 Combinaison(nbPixels: 1, color: UIColor.white),
                 Combinaison(nbPixels: 6, color: UIColor.red),
@@ -44,7 +44,7 @@ class HeartPattern: PatternsManager {
                 Combinaison(nbPixels: 2, color: UIColor.red),
                 Combinaison(nbPixels: 3, color: UIColor.white)
             ]),
-            self.createOnColorLine(color: UIColor.white)
+            self.createOneColorLine(color: UIColor.white)
         ]
     }
     

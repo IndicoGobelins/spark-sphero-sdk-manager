@@ -61,7 +61,7 @@ class StarPattern: PatternsManager {
                 Combinaison(nbPixels: 1, color: UIColor.yellow),
                 Combinaison(nbPixels: 1, color: UIColor.white)
             ]),
-            self.createOnColorLine(color: UIColor.white)
+            self.createOneColorLine(color: UIColor.white)
         ]
     }
 }
