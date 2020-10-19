@@ -58,16 +58,17 @@ class SpheroLedsViewController: UIViewController {
             SharedToyBox.instance.bolts.map{ $0.drawMatrix(pixel: Pixel(x: x, y: y), color: .red) }
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
+ 
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func heartClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "heart")
     }
-    */
-
+    @IBAction func starClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "star")
+    }
+    
+    @IBAction func clearClicked(_ sender: Any) {
+        SpheroLedManager.shared.clearLedScreen()
+    }
 }
+

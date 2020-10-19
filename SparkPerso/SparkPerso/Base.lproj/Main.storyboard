@@ -739,6 +739,30 @@ Current Heading: 0</string>
                                     <action selector="sendTextClicked:" destination="csL-6f-fr4" eventType="touchUpInside" id="GmC-ce-1TI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-1O-OoS">
+                                <rect key="frame" x="129" y="308" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw heart"/>
+                                <connections>
+                                    <action selector="heartClicked:" destination="csL-6f-fr4" eventType="touchDown" id="tzE-vN-CD0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU1-B0-F5L">
+                                <rect key="frame" x="129" y="422" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear draw"/>
+                                <connections>
+                                    <action selector="clearClicked:" destination="csL-6f-fr4" eventType="touchDown" id="Hmv-Dg-5ee"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmg-WM-e3t">
+                                <rect key="frame" x="133" y="357" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw Star"/>
+                                <connections>
+                                    <action selector="starClicked:" destination="csL-6f-fr4" eventType="touchDown" id="bkV-b0-bJl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eE1-hw-jB6"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -914,6 +938,21 @@ Current Heading: 0</string>
                                     <action selector="segementedControlChanged:" destination="zYA-3T-nBU" eventType="valueChanged" id="R5N-D4-TJx"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBw-uM-QHa">
+                                <rect key="frame" x="141" y="308" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Random"/>
+                                <connections>
+                                    <action selector="nextRandomClicked:" destination="zYA-3T-nBU" eventType="touchDown" id="Q5u-KQ-eWN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-9N-dEb" customClass="GraphView" customModule="SparkPerso" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="127" width="375" height="124"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="lvK-KM-Djn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="be7-u4-myX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -955,7 +994,7 @@ Current Heading: 0</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V6-ji-ChT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975" y="130.98591549295776"/>
+            <point key="canvasLocation" x="973.60000000000002" y="130.88455772113943"/>
         </scene>
         <!--Camera-->
         <scene sceneID="MGQ-EB-dK8">

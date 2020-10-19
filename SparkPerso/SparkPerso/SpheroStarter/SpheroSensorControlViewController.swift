@@ -34,10 +34,13 @@ class SpheroSensorControlViewController: UIViewController {
     var isRecording = false
     var isPredicting = false
     
+    let initialArrayPatterns = SpheroLedManager.shared.getRandomChoicesPatterns()
+    var currentArrayPattern = SpheroLedManager.shared.getRandomChoicesPatterns()
+    var nbRandomChoices = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         // Do any additional setup after loading the view.
         neuralNet = FFNN(inputs: 1800, hidden: 20, outputs: 3, learningRate: 0.3, momentum: 0.2, weights: nil, activationFunction: .Sigmoid, errorFunction:.crossEntropy(average: false))// .default(average: true))
         
@@ -57,9 +60,6 @@ class SpheroSensorControlViewController: UIViewController {
                 
                 if self.isRecording || self.isPredicting {
                     
-                   
-                    
-                    
                     if let acceleration = data.accelerometer?.filteredAcceleration {
                         // PAS BIEN!!!
                         currentAccData.append(contentsOf: [acceleration.x!, acceleration.y!, acceleration.z!])
@@ -69,12 +69,28 @@ class SpheroSensorControlViewController: UIViewController {
 //                            print("gauche")
 //                        }
                         let absSum = abs(acceleration.x!)+abs(acceleration.y!)+abs(acceleration.z!)
-                        /*
+                        
                         if absSum > 14 {
                             print("Secousse")
-                        }else{
-                            print("IDLE")
-                        }*/
+                            self.nbRandomChoices += 1
+                            SpheroLedManager.shared.drawPatternInScreen(givenPattern: self.getRandomPattern())
+                            self.isRecording = false
+                            
+                            // Ajouter un delay pour restart tout seul le second choix random ? (en gros faire l'action du bouton randomClicked)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Change `2.0` to the desired number of seconds.
+                               SpheroLedManager.shared.clearLedScreen()
+                                
+                                if self.nbRandomChoices == self.initialArrayPatterns.count {
+                                    self.nbRandomChoices = 0
+                                    SpheroLedManager.shared.drawPatternInScreen(givenPattern: "stop")
+                                } else {
+                                    self.isRecording = true
+                                }
+                               
+                            }
+                        }
+                        
                         let dataToDisplay: double3 = [acceleration.x!, acceleration.y!, acceleration.z!]
                         self.acceleroChart.add(dataToDisplay)
                     }
@@ -147,13 +163,24 @@ class SpheroSensorControlViewController: UIViewController {
         
     }
     
-    
     @IBAction func trainButtonClicked(_ sender: Any) {
-        
         trainNetwork()
-        
     }
     
+    @IBAction func nextRandomClicked(_ sender: Any) {
+        SpheroLedManager.shared.clearLedScreen()
+        self.isRecording = true
+    }
+    
+    func getRandomPattern() -> String {
+        if self.currentArrayPattern.isEmpty {
+            self.currentArrayPattern = self.initialArrayPatterns
+        }
+        let randomIndex = Int(arc4random_uniform(UInt32(currentArrayPattern.count)))
+        let randomString = currentArrayPattern[randomIndex]
+        currentArrayPattern.remove(at: randomIndex)
+        return randomString
+    }
     
     @IBAction func predictButtonClicked(_ sender: Any) {
         self.isPredicting = true
