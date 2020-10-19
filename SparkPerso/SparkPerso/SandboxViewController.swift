@@ -25,7 +25,6 @@ class SandboxViewController: UIViewController {
         
     }
     
-    
     // ====== CAMERA
     
     override func viewWillAppear(_ animated: Bool) {
