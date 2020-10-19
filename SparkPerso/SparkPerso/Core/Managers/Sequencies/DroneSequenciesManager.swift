@@ -39,11 +39,11 @@ class DroneSequenciesManager {
                 /* Execute the sequence according to the current state */
                 .playCurrentSequence(duration: self._currentSequence!.duration) {
                     /* Execute this code below when the moove is finished */
+                    self.afterPlayingCurrentSequenceHook()
+                    
                     if self._sequencies.count > 0 {
                         self._sequencies.removeFirst()
                     }
-                    
-                    self.afterPlayingCurrentSequenceHook()
                     
                     self.play()
                 }

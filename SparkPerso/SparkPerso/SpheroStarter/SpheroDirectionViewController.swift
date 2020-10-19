@@ -63,44 +63,39 @@ class SpheroDirectionViewController: UIViewController {
     }
     
     func displayCurrentState() {
-        stateLabel.text = "Current Speed: \(currentSpeed.rounded())\nCurrent Heading: \(currentHeading.rounded())"
+        stateLabel.text = "Current Speed: \(SpheroPilotManager.shared.getSpeed().rounded())\nCurrent Heading: \(SpheroPilotManager.shared.getHeading().rounded())"
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        currentSpeed = Double(sender.value)
+        SpheroPilotManager.shared.setSpeed(Double(sender.value))
+        self.displayCurrentState()
     }
     
     @IBAction func headingValueChanged(_ sender: UISlider) {
-        currentHeading = Double(sender.value)
-        SharedToyBox.instance.bolts.map{ $0.stopRoll(heading: currentHeading) }
-        //SharedToyBox.instance.bolt?.stopRoll(heading: currentHeading)
+        SpheroPilotManager.shared.setReferenceHeading(Double(sender.value))
+        SpheroPilotManager.shared.setHeading(Double(sender.value))
+        SpheroPilotManager.shared.stop()
+        self.displayCurrentState()
     }
     
     @IBAction func frontClicked(_ sender: Any) {
-        SharedToyBox.instance.bolts.map{ $0.roll(heading: currentHeading, speed: currentSpeed) }
-//        SharedToyBox.instance.bolt?.roll(heading: currentHeading, speed: currentSpeed)
+        SpheroPilotManager.shared.goForward()
     }
     
     @IBAction func leftClicked(_ sender: Any) {
-        currentHeading += 30.0
-        SharedToyBox.instance.bolts.map{ $0.roll(heading: currentHeading, speed: currentSpeed) }
-//        SharedToyBox.instance.bolt?.roll(heading: currentHeading, speed: currentSpeed)
+        SpheroPilotManager.shared.goLeft()
     }
     
     @IBAction func rightClicked(_ sender: Any) {
-        currentHeading -= 30.0
-        SharedToyBox.instance.bolts.map{ $0.roll(heading: currentHeading, speed: currentSpeed) }
-//        SharedToyBox.instance.bolt?.roll(heading: currentHeading, speed: currentSpeed)
+        SpheroPilotManager.shared.goRight()
     }
     
     @IBAction func backClicked(_ sender: Any) {
-        SharedToyBox.instance.bolts.map{ $0.roll(heading: currentHeading, speed: currentHeading, rollType: .roll, direction: .reverse) }
-//         SharedToyBox.instance.bolt?.roll(heading: currentHeading, speed: currentHeading, rollType: .roll, direction: .reverse)
+        SpheroPilotManager.shared.goBackward()
     }
     
     @IBAction func stopClicked(_ sender: Any) {
-        SharedToyBox.instance.bolts.map{ $0.stopRoll(heading: currentHeading) }
-//        SharedToyBox.instance.bolt?.stopRoll(heading: currentHeading)
+        SpheroPilotManager.shared.stop()
     }
     
     /*
