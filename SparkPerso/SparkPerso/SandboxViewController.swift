@@ -15,9 +15,9 @@ class SandboxViewController: UIViewController {
     
     @IBOutlet weak var logTextView: UITextView!
     
+    // camera
     let prev1 = VideoPreviewer()
     @IBOutlet weak var cameraView: UIView!
-    
     @IBOutlet weak var extractedFrameImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -28,7 +28,6 @@ class SandboxViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
     
     // ====== CAMERA
     
