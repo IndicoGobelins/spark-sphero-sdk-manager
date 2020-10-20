@@ -67,11 +67,6 @@ class LaboActivityManager {
         }
     }
     
-    private func changeHeading(spheroInstance:  SpheroPilotManager) -> Void {
-        spheroInstance.setHeading(SpheroPilotManager.shared.getHeading() - 45)
-        spheroInstance.stop()
-    }
-    
     private func changeDirection(spheroInstance:  SpheroPilotManager) -> Void {
         spheroInstance.setHeading(spheroInstance.getHeading() + 30.0)
         SharedToyBox.instance.bolts.map{ $0.roll(heading: spheroInstance.getHeading(), speed: spheroInstance.getSpeed()) }

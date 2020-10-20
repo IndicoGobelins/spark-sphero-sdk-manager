@@ -1412,7 +1412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5T2ANYJQG;
+				DEVELOPMENT_TEAM = 7TZGU5QVQ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1421,7 +1421,7 @@
 				INFOPLIST_FILE = SparkPerso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sparkperso.tham;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkperso.tham2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SparkPerso-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -1435,7 +1435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5T2ANYJQG;
+				DEVELOPMENT_TEAM = 7TZGU5QVQ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1444,7 +1444,7 @@
 				INFOPLIST_FILE = SparkPerso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sparkperso.tham;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkperso.tham2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SparkPerso-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
