@@ -37,7 +37,7 @@ class SpheroLedManager {
     }
     
     public func getRandomChoicesPatterns() -> [String] {
-        return ["heart","car","star"]
+        return ["erlenmayer","doggy","question"]
     }
     
     
@@ -52,6 +52,18 @@ class SpheroLedManager {
                 self._pattern = CarPattern(self)
             case "stop":
                 self._pattern = StopPattern(self)
+            case "blood":
+                self._pattern = BloodPattern(self)
+            case "erlenmayer":
+                self._pattern = ErlenmayerPattern(self)
+            case "dog":
+                self._pattern = DogPattern(self)
+            case "doggy":
+                self._pattern = DoggyPattern(self)
+            case "question":
+                self._pattern = QuestionPattern(self)
+            case "adn":
+                self._pattern = AdnPattern(self)
             default:
                 self._pattern = nil
         }

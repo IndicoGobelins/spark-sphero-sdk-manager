@@ -194,11 +194,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Y-g5-whm">
-                                <rect key="frame" x="172" y="561" width="109" height="30"/>
+                                <rect key="frame" x="244" y="565" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Dog Experience"/>
+                                <state key="normal" title="Dog Activity"/>
                                 <connections>
                                     <segue destination="OPi-xt-7VW" kind="show" id="dUP-Hx-g7j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5L-PG-JxM">
+                                <rect key="frame" x="240" y="636" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Labo activity"/>
+                                <connections>
+                                    <segue destination="yIh-49-jfi" kind="show" id="s0s-kI-dgy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -518,6 +526,40 @@
             </objects>
             <point key="canvasLocation" x="2936.8000000000002" y="141.67916041979012"/>
         </scene>
+        <!--Labo Activity View Controller-->
+        <scene sceneID="mAd-dk-oRp">
+            <objects>
+                <viewController id="yIh-49-jfi" customClass="LaboActivityViewController" customModule="SparkPerso" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3lW-0e-4O0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8p-i5-DcG">
+                                <rect key="frame" x="151" y="182" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start experience"/>
+                                <connections>
+                                    <action selector="StartActivityClicked:" destination="yIh-49-jfi" eventType="touchDown" id="NzS-0W-l6n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLb-02-23Z">
+                                <rect key="frame" x="152" y="290" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop experience"/>
+                                <connections>
+                                    <action selector="StopActivityClicked:" destination="yIh-49-jfi" eventType="touchDown" id="U4q-v7-JY5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="O7v-Ms-Lqc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eOs-vu-xR5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4L-GU-fdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3902.898550724638" y="131.91964285714286"/>
+        </scene>
         <!--Movement-->
         <scene sceneID="kMK-zp-NJ6">
             <objects>
@@ -736,6 +778,70 @@ Current Heading: 0</string>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sendTextClicked:" destination="csL-6f-fr4" eventType="touchUpInside" id="GmC-ce-1TI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pca-kT-URt">
+                                <rect key="frame" x="54" y="335" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw heart"/>
+                                <connections>
+                                    <action selector="heartClicked:" destination="csL-6f-fr4" eventType="touchDown" id="kGh-Oh-GOt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcS-Hm-4MO">
+                                <rect key="frame" x="59" y="390" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw star"/>
+                                <connections>
+                                    <action selector="starClicked:" destination="csL-6f-fr4" eventType="touchDown" id="eZp-02-DDZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj5-KB-lJe">
+                                <rect key="frame" x="34" y="445" width="116" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw erlenmayer"/>
+                                <connections>
+                                    <action selector="erlenmayerClicked:" destination="csL-6f-fr4" eventType="touchDown" id="eql-17-Oqa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N99-W7-PeR">
+                                <rect key="frame" x="49" y="518" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear screen"/>
+                                <connections>
+                                    <action selector="clearClicked:" destination="csL-6f-fr4" eventType="touchDown" id="cxW-bF-0en"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-Ob-Uqc">
+                                <rect key="frame" x="252" y="335" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw dog"/>
+                                <connections>
+                                    <action selector="dogClicked:" destination="csL-6f-fr4" eventType="touchDown" id="MxI-Wi-IOu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-x1-4aa">
+                                <rect key="frame" x="244" y="389" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw doggy"/>
+                                <connections>
+                                    <action selector="doggyClicked:" destination="csL-6f-fr4" eventType="touchDown" id="lbm-W3-Vkm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cge-zm-AAC">
+                                <rect key="frame" x="236" y="445" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw question"/>
+                                <connections>
+                                    <action selector="questionClicked:" destination="csL-6f-fr4" eventType="touchDown" id="rr3-sq-a46"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hK-rk-Lpc">
+                                <rect key="frame" x="262" y="497" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw adn"/>
+                                <connections>
+                                    <action selector="adnClicked:" destination="csL-6f-fr4" eventType="touchDown" id="ayr-0e-Yh6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1504,7 +1610,7 @@ Current Heading: 0</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-fh-bVe">
-                                <rect key="frame" x="90.5" y="447" width="233" height="56"/>
+                                <rect key="frame" x="90.5" y="447" width="46" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="194" id="Jwe-by-DgE"/>
                                     <constraint firstAttribute="height" constant="56" id="W2t-na-AjF"/>
@@ -1515,7 +1621,7 @@ Current Heading: 0</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYY-Jt-PKr">
-                                <rect key="frame" x="318" y="441.5" width="80" height="67"/>
+                                <rect key="frame" x="131" y="441.5" width="80" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="1Dt-zM-geQ"/>
                                     <constraint firstAttribute="width" constant="80" id="P0E-Ug-bU7"/>

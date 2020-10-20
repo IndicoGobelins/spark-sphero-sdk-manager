@@ -10,7 +10,7 @@ import Foundation
 
 class SpheroPilotManager: TwoDimPilotManager {
     private var _spheroTarget: BoltToy? = nil
-    private var _speed: Double = 0
+    private var _speed: Double = 250
     private var _heading: Double = 0
     private var _referenceHeading: Double = 0
     public static var shared = SpheroPilotManager()
@@ -62,12 +62,16 @@ class SpheroPilotManager: TwoDimPilotManager {
     public func connectFirstSphero() -> Void {
         if let sphero = SharedToyBox.instance.bolts[0] as BoltToy? {
             self._spheroTarget = sphero
+            _spheroTarget?.setToyOptions(.EnableVectorDrive)
+            _spheroTarget?.setStabilization(state: .on)
         }
     }
     
     public func connectSecondSphero() -> Void {
         if let sphero = SharedToyBox.instance.bolts[1] as BoltToy? {
             self._spheroTarget = sphero
+            _spheroTarget?.setToyOptions(.EnableVectorDrive)
+            _spheroTarget?.setStabilization(state: .on)
         }
     }
     
