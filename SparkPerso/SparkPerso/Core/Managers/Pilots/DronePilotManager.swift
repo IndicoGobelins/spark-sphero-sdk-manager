@@ -26,7 +26,7 @@ class DronePilotManager: ThreeDimPilotManager {
     
     // PROPERTIES
     public static var shared: DronePilotManager = DronePilotManager()
-    private var _speed: Float = 0.3
+    private var _speed: Float = 0.1
     
     // CONSTRUCTOR
     init() {
