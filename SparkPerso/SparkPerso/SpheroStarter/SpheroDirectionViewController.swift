@@ -33,7 +33,7 @@ class SpheroDirectionViewController: UIViewController {
         
         SharedToyBox.instance.bolts.map{
             $0.setStabilization(state: SetStabilization.State.on)
-            $0.setCollisionDetection(configuration: .enabled)
+           // $0.setCollisionDetection(configuration: .enabled)
         }
         SharedToyBox.instance.bolts.map{
             $0.onCollisionDetected = { collisionData in

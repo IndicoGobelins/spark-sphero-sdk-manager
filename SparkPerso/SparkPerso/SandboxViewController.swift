@@ -120,6 +120,9 @@ class SandboxViewController: UIViewController {
                 .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.RIGHT, executedCallback: CollectCluesActivity.shared.goRightAction)
                 .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.COLLECT, executedCallback: CollectCluesActivity.shared.collectAction)
                 .on(activity: Router.Activity.CLUES_ACTIVITY, action: Router.Action.STOP, executedCallback: CollectCluesActivity.shared.stopAction)
+            
+                // Declare routes for LABO ACTIVITY
+                .on(activity: Router.Activity.LABO_ACTIVITY, action: Router.Action.START, executedCallback: LaboActivity.shared.startActivity)
         }
         
         USBBridge.shared.receivedMessage({ (str) in

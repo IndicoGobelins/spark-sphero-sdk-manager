@@ -13,6 +13,7 @@ class Router {
     enum Activity {
         case DOG_ACTIVITY
         case CLUES_ACTIVITY
+        case LABO_ACTIVITY
     }
     
     enum Action {
@@ -26,6 +27,7 @@ class Router {
         case GOBACK
         case SITDOWN
         case COLLECT
+        case START
     }
 
     enum Device {
@@ -71,6 +73,8 @@ class Router {
             returnedActivity = Activity.DOG_ACTIVITY
         case "CLUE_ACTIVITY":
             returnedActivity = Activity.CLUES_ACTIVITY
+        case "LABO_ACTIVITY":
+            returnedActivity = Activity.LABO_ACTIVITY
         default:
             returnedActivity = nil
         }
@@ -105,6 +109,8 @@ class Router {
             returnedAction = Action.SITDOWN
         case "COLLECT":
             returnedAction = Action.COLLECT
+        case"START":
+            returnedAction = Action.START
         default:
             returnedAction = nil
         }

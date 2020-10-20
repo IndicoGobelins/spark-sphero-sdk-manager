@@ -43,6 +43,6 @@ class CollectCluesActivity: BaseActivity {
     
     public func collectAction(device: Router.Device) -> Void {
         Debugger.shared.log("collectionAction method triggered from CollectCluesActivity class")
-        // TODO : Implement this method
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "blood")
     }
 }

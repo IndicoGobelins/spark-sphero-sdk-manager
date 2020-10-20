@@ -66,9 +66,25 @@ class SpheroLedsViewController: UIViewController {
     @IBAction func starClicked(_ sender: Any) {
         SpheroLedManager.shared.drawPatternInScreen(givenPattern: "star")
     }
+    @IBAction func erlenmayerClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "erlenmayer")
+    }
+    @IBAction func dogClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "dog")
+    }
+    @IBAction func doggyClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "doggy")
+    }
+    @IBAction func questionClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "question")
+    }
+    @IBAction func adnClicked(_ sender: Any) {
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
+    }
     
     @IBAction func clearClicked(_ sender: Any) {
         SpheroLedManager.shared.clearLedScreen()
     }
+    
 }
 
