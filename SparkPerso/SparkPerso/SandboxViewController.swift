@@ -46,20 +46,21 @@ class SandboxViewController: UIViewController {
      */
     func startQrcodeDetection() {
         self._stopTimer = false
-         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            self.prev1?.snapshotThumnnail { (image) in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            self.prev1?.snapshotPreview { (image) in
                 
                 if let img = image {
                     
+                    let croppedImage = self.cropImage(image: img, height: 500)
                     //display image
-                    self.extractedFrameImageView.image = img
-                    let ciimg: CIImage = CIImage(image: img)!
+                    self.extractedFrameImageView.image = croppedImage
+                    let ciimg: CIImage = CIImage(image: croppedImage)!
                     let features = self.detector.features(in: ciimg)
                     
                     for feature in features as! [CIQRCodeFeature] {
                         Debugger.shared.log("Message du QRCODE : \(String(feature.messageString!))")
                         if feature.messageString == DogActivity.QRCODE_MESSAGE_VALID && DogActivity.shared.isQrcodeDetectionActivated {
-                            DroneSequenciesManager.shared.clearSequencies()
+                            DronePilotManager.shared.stop()
                             DogActivity.shared.isQrcodeDetectionActivated = false
                         }
                     }
@@ -90,6 +91,64 @@ class SandboxViewController: UIViewController {
         prev1?.start()
     }
     
+    func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
+        let cgimage = image.cgImage!
+        let contextImage: UIImage = UIImage(cgImage: cgimage)
+        let contextSize: CGSize = contextImage.size
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(width)
+        var cgheight: CGFloat = CGFloat(height)
+        
+
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = cgimage.cropping(to: rect)!
+
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+
+        return image
+    }
+    
+    public func cropImage(image: UIImage, height: Double) -> UIImage {
+        // Convert UIImage to CGImage
+        let cgImage = image.cgImage!
+        // Retrieve context and size
+        let contextImage: UIImage = UIImage(cgImage: cgImage)
+        let contextSize: CGSize = contextImage.size
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        // Convert size param to CGImage
+        let cgWidth: CGFloat = contextSize.width
+        let cgHeight: CGFloat = CGFloat(height)
+        
+        posX = (contextSize.width - cgWidth) / 2
+        posY = contextSize.height - cgHeight;
+        
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgWidth, height: cgHeight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = cgImage.cropping(to: rect)!
+        
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
+    }
     
     // ====== BRIDGE
     
