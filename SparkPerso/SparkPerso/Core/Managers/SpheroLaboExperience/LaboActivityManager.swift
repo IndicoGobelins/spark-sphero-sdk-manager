@@ -12,7 +12,7 @@ import UIKit
 class LaboActivityManager {
     public static var shared: LaboActivityManager = LaboActivityManager()
     private var _iteration = 0
-    private let _iterationmax = 1000
+    private let _iterationmax = 20
     private var isRunning = false
     
     // CONSTRUCTOR
@@ -58,6 +58,11 @@ class LaboActivityManager {
                 SpheroPilotManager.shared.stop()
                 
                 self._iteration = 0
+                
+                SpheroLedManager.shared.connectSecondSphero()
+                SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
+                
+                SpheroLedManager.shared.connectSecondSphero()
                 SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
                 
                 self.isRunning = false

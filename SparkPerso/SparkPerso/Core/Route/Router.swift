@@ -34,6 +34,7 @@ class Router {
         case DRONE
         case SPHERO1
         case SPHERO2
+        case NONE
     }
     
     private var _routes: [Route] = []
@@ -131,6 +132,8 @@ class Router {
             returnedDevice = Device.SPHERO1
         case "SPHERO2":
             returnedDevice = Device.SPHERO2
+        case "NONE":
+            returnedDevice = Device.NONE
         default:
             returnedDevice = nil
         }

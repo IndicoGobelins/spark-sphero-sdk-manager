@@ -12,8 +12,6 @@ class LaboActivity: BaseActivity {
     public static var shared: LaboActivity = LaboActivity()
     
     public func startActivity(device: Router.Device) -> Void {
-        SpheroPilotManager.shared
-        .setSpheroTargetFromDevice(sphero: device)
-        .goForward()
+        LaboActivityManager.shared.startActivity()
     }
 }
