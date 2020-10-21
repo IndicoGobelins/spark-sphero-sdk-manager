@@ -12,10 +12,11 @@ import UIKit
 class SpheroLedManager {
     private var _pattern: PatternsManager! = nil
     public static var shared: SpheroLedManager = SpheroLedManager()
+    private var _spheroTarget: BoltToy? = nil
     
     // CONSTRUCTOR
     init() {
-        
+        self.connectFirstSphero()
     }
     
     // Draw pattern in sphero led screen from a pattern if this pattern is not null
@@ -24,10 +25,37 @@ class SpheroLedManager {
         if self._pattern != nil {
             for i in 0...8-1 {
                 for j in 0...8-1 {
-                    SharedToyBox.instance.bolts.map{ $0.drawMatrix(pixel: Pixel(x: i, y: j), color: self._pattern.getPattern()[i][j]) }
+                    self._spheroTarget?.drawMatrix(pixel: Pixel(x: i, y: j), color: self._pattern.getPattern()[i][j])
                 }
             }
         }
+    }
+    
+    public func connectFirstSphero() -> Void {
+        if let sphero = SharedToyBox.instance.bolts[0] as BoltToy? {
+            Debugger.shared.log("first sphero")
+            self._spheroTarget = sphero
+        }
+    }
+    
+    public func connectSecondSphero() -> Void {
+        if let sphero = SharedToyBox.instance.bolts[1] as BoltToy? {
+            Debugger.shared.log("second sphero")
+            self._spheroTarget = sphero
+        }
+    }
+    
+    public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroLedManager {
+        switch sphero {
+            case .SPHERO1:
+                self.connectFirstSphero()
+            case .SPHERO2:
+                self.connectSecondSphero()
+            default:
+                self.connectFirstSphero()
+        }
+        
+        return self
     }
     
     // Clean sphero led screen
