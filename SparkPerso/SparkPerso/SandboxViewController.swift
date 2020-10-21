@@ -10,6 +10,7 @@ import UIKit
 import DJISDK
 import VideoPreviewer
 import Foundation
+import Vision
 
 class SandboxViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class SandboxViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DroneCameraManager.shared.onStartDetectQrcode(hookCallback: self.startQrcodeDetection)
+        DroneCameraManager.shared.onStartDetectQrcode(hookCallback: self.startNumberDetection)
         
     }
     
@@ -69,6 +70,64 @@ class SandboxViewController: UIViewController {
                 if self._stopTimer {
                     timer.invalidate()
                 }
+            }
+        }
+    }
+    
+    func startNumberDetection() {
+        self._stopTimer = false
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            self.prev1?.snapshotPreview { (image) in
+                
+                if let img = image {
+                    
+                    let croppedImage = self.cropImage(image: img, height: 500)
+                    //display image
+                    self.extractedFrameImageView.image = croppedImage
+                    self._handleTextDetection(image: croppedImage)
+                }
+                
+                if self._stopTimer {
+                    timer.invalidate()
+                }
+            }
+        }
+    }
+    
+    
+    private func _handleTextDetection(image: UIImage) -> Void {
+        guard let cgImage = image.cgImage else { return }
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+        
+        let request = VNRecognizeTextRequest(completionHandler: _recognizeTextHandler)
+
+        do {
+            // Perform the text-recognition request.
+            try requestHandler.perform([request])
+        } catch {
+            print("Unable to perform the requests: \(error).")
+        }
+    }
+    
+    private func _recognizeTextHandler(request: VNRequest, error: Error?) {
+        guard let observations =
+                request.results as? [VNRecognizedTextObservation] else {
+            return
+        }
+        
+        let recognizedStrings = observations.compactMap { observation in
+            // Return the string of the top VNRecognizedText instance.
+            return observation.topCandidates(1).first?.string
+        }
+        
+        print(recognizedStrings)
+        
+        if let predicatNumber = recognizedStrings.first {
+            if predicatNumber == DogActivity.NUMBER_SUSPECT && DogActivity.shared.isQrcodeDetectionActivated {
+                Debugger.shared.log("The suspect 3 is the guilty")
+                DronePilotManager.shared.stop()
+                DogActivity.shared.isQrcodeDetectionActivated = false
             }
         }
     }

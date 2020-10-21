@@ -20,6 +20,7 @@ class DogActivity: BaseActivity {
     public var isQrcodeDetectionActivated: Bool = true
     public static var shared: DogActivity = DogActivity()
     public static let QRCODE_MESSAGE_VALID = "indico"
+    public static let NUMBER_SUSPECT = "3"
     
     override init() {
         self._droneSequenciesManager = DroneSequenciesManager.shared
