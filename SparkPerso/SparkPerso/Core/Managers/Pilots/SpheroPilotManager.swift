@@ -10,13 +10,13 @@ import Foundation
 
 class SpheroPilotManager: TwoDimPilotManager {
     private var _spheroTarget: BoltToy? = nil
-    private var _speed: Double = 250
+    private var _speed: Double = 125
     private var _heading: Double = 0
     private var _referenceHeading: Double = 0
     public static var shared = SpheroPilotManager()
     
     init() {
-        self.connectFirstSphero()
+        self.setSpheroTarget(spheroNumber: 1)
     }
     
     func stop() {
@@ -59,19 +59,14 @@ class SpheroPilotManager: TwoDimPilotManager {
     
     }
     
-    public func connectFirstSphero() -> Void {
-        if let sphero = SharedToyBox.instance.bolts[0] as BoltToy? {
+    public func setSpheroTarget(spheroNumber: Int) -> Void {
+        let index = spheroNumber - 1
+        
+        if spheroNumber <= SharedToyBox.instance.bolts.count {
+            let sphero = SharedToyBox.instance.bolts[index]
             self._spheroTarget = sphero
-            _spheroTarget?.setToyOptions(.EnableVectorDrive)
-            _spheroTarget?.setStabilization(state: .on)
-        }
-    }
-    
-    public func connectSecondSphero() -> Void {
-        if let sphero = SharedToyBox.instance.bolts[1] as BoltToy? {
-            self._spheroTarget = sphero
-            _spheroTarget?.setToyOptions(.EnableVectorDrive)
-            _spheroTarget?.setStabilization(state: .on)
+//            _spheroTarget?.setToyOptions(.EnableVectorDrive)
+//            _spheroTarget?.setStabilization(state: .on)
         }
     }
     
@@ -91,11 +86,11 @@ class SpheroPilotManager: TwoDimPilotManager {
     public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroPilotManager {
         switch sphero {
         case .SPHERO1:
-            self.connectFirstSphero()
+            self.setSpheroTarget(spheroNumber: 1)
         case .SPHERO2:
-            self.connectSecondSphero()
+            self.setSpheroTarget(spheroNumber: 2)
         default:
-            self.connectFirstSphero()
+            self.setSpheroTarget(spheroNumber: 1)
         }
         
         return self

@@ -21,10 +21,9 @@ class LaboActivityManager {
     }
     
     public func startActivity() {
-
         self.isRunning = true
+        SpheroPilotManager.shared.setSpeed(250)
         self.rotateSphero()
-
     }
     
     public func stopActivity() {
@@ -40,10 +39,10 @@ class LaboActivityManager {
 
             if(self._iteration < self._iterationmax && self.isRunning) {
                 
-                SpheroPilotManager.shared.connectFirstSphero()
+                SpheroPilotManager.shared.setSpheroTarget(spheroNumber: 1)
                 self.changeDirection(spheroInstance: SpheroPilotManager.shared)
                 
-                SpheroPilotManager.shared.connectSecondSphero()
+                SpheroPilotManager.shared.setSpheroTarget(spheroNumber: 2)
                 self.changeDirection(spheroInstance: SpheroPilotManager.shared)
 
                 self.rotateSphero()
@@ -51,25 +50,29 @@ class LaboActivityManager {
             } else {
                 SpheroPilotManager.shared.stop()
                 
-                SpheroPilotManager.shared.connectFirstSphero()
+                SpheroPilotManager.shared.setSpheroTarget(spheroNumber: 1)
                 SpheroPilotManager.shared.stop()
                 
-                SpheroPilotManager.shared.connectSecondSphero()
+                SpheroPilotManager.shared.setSpheroTarget(spheroNumber: 2)
                 SpheroPilotManager.shared.stop()
                 
                 self._iteration = 0
-                
-                SpheroLedManager.shared.connectSecondSphero()
-                SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
-                
-                SpheroLedManager.shared.connectSecondSphero()
-                SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
+                self.displaySymbol()
                 
                 self.isRunning = false
                 
             }
 
         }
+    }
+    
+    public func displaySymbol() -> Void {
+        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 1)
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
+        
+        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 2)
+
+        SpheroLedManager.shared.drawPatternInScreen(givenPattern: "adn")
     }
     
     private func changeDirection(spheroInstance:  SpheroPilotManager) -> Void {

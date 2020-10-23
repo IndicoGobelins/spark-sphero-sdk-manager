@@ -106,6 +106,9 @@
 		61EDDB1D2359BC82008B3636 /* SparkMovementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EDDB1C2359BC82008B3636 /* SparkMovementManager.swift */; };
 		61EDDB1F2359BC92008B3636 /* SpheroMovementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EDDB1E2359BC92008B3636 /* SpheroMovementManager.swift */; };
 		61F339AB23250521000967B2 /* SpheroStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F339AA23250521000967B2 /* SpheroStatusViewController.swift */; };
+		8867B5A02540AAD000813087 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867B59F2540AAD000813087 /* AdminViewController.swift */; };
+		8867B5A725419E9100813087 /* OnePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867B5A625419E9100813087 /* OnePattern.swift */; };
+		8867B5AC25419EBE00813087 /* twoPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867B5AB25419EBE00813087 /* twoPattern.swift */; };
 		88A5D428252CC83A00D281AD /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D427252CC83A00D281AD /* Debugger.swift */; };
 		88A5D42E252CCB0F00D281AD /* PilotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D42D252CCB0F00D281AD /* PilotManager.swift */; };
 		88A5D433252CCB4C00D281AD /* TwoDimDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5D432252CCB4C00D281AD /* TwoDimDirections.swift */; };
@@ -293,6 +296,9 @@
 		61EDDB1C2359BC82008B3636 /* SparkMovementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkMovementManager.swift; sourceTree = "<group>"; };
 		61EDDB1E2359BC92008B3636 /* SpheroMovementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpheroMovementManager.swift; sourceTree = "<group>"; };
 		61F339AA23250521000967B2 /* SpheroStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpheroStatusViewController.swift; sourceTree = "<group>"; };
+		8867B59F2540AAD000813087 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		8867B5A625419E9100813087 /* OnePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePattern.swift; sourceTree = "<group>"; };
+		8867B5AB25419EBE00813087 /* twoPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twoPattern.swift; sourceTree = "<group>"; };
 		88A5D427252CC83A00D281AD /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		88A5D42D252CCB0F00D281AD /* PilotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotManager.swift; sourceTree = "<group>"; };
 		88A5D432252CCB4C00D281AD /* TwoDimDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDimDirections.swift; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 				61027A28251B79810065D72D /* FirstMoveViewController.swift */,
 				61027A6A251E22FC0065D72D /* SeqManager.swift */,
 				EDAF187A252F3F2100216AC0 /* SandboxViewController.swift */,
+				8867B59F2540AAD000813087 /* AdminViewController.swift */,
 			);
 			path = SparkPerso;
 			sourceTree = "<group>";
@@ -894,6 +901,8 @@
 				EDEECA15253DC35D0023B1DD /* DoggyPattern.swift */,
 				EDEECA17253DC4E20023B1DD /* QuestionPattern.swift */,
 				EDEECA19253DC55D0023B1DD /* AdnPattern.swift */,
+				8867B5A625419E9100813087 /* OnePattern.swift */,
+				8867B5AB25419EBE00813087 /* twoPattern.swift */,
 			);
 			path = Patterns;
 			sourceTree = "<group>";
@@ -1137,6 +1146,7 @@
 				61C3D67C231BF82F00F98C11 /* ToyProtocols.swift in Sources */,
 				EDAF1820252DE40C00216AC0 /* LandingStateSequence.swift in Sources */,
 				613A72F4237C6A9000119581 /* FFNN+Storage.swift in Sources */,
+				8867B5A02540AAD000813087 /* AdminViewController.swift in Sources */,
 				EDAF188425305B0C00216AC0 /* CollectCluesActivity.swift in Sources */,
 				88A5D458252CDCBB00D281AD /* RightStateSequence.swift in Sources */,
 				EDAF187D25304BC600216AC0 /* CommunicationHelper.swift in Sources */,
@@ -1165,6 +1175,7 @@
 				613A72F0237C6A9000119581 /* Vector.swift in Sources */,
 				61C3D67F231BF82F00F98C11 /* Color+Utils.swift in Sources */,
 				88A5D462252CDD8D00D281AD /* BackwardStateSequence.swift in Sources */,
+				8867B5A725419E9100813087 /* OnePattern.swift in Sources */,
 				88A5D448252CD5C200D281AD /* DroneSequenciesManager.swift in Sources */,
 				61C3D68C231BF82F00F98C11 /* CommandV1Sequencer.swift in Sources */,
 				61F339AB23250521000967B2 /* SpheroStatusViewController.swift in Sources */,
@@ -1199,6 +1210,7 @@
 				6117056921F75E4D009F47E4 /* Spark.swift in Sources */,
 				EDAF18902530921D00216AC0 /* DroneCameraManager.swift in Sources */,
 				6184E2DB21E8ABB300895FDF /* CGPoints+Extensions.swift in Sources */,
+				8867B5AC25419EBE00813087 /* twoPattern.swift in Sources */,
 				61C3D693231BFE6900F98C11 /* SpheroDirectionViewController.swift in Sources */,
 				612304AA200BABF200F98395 /* ProductCommunicationManager.swift in Sources */,
 				61C3D691231BFD5F00F98C11 /* SpheroAimingViewController.swift in Sources */,

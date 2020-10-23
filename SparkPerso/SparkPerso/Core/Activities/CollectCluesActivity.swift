@@ -12,24 +12,28 @@ class CollectCluesActivity: BaseActivity {
     public static var shared: CollectCluesActivity = CollectCluesActivity()
     
     public func goForwardAction(device: Router.Device) -> Void {
+        SpheroLedManager.shared.setSpheroTargetFromDevice(sphero: device)
         SpheroPilotManager.shared
             .setSpheroTargetFromDevice(sphero: device)
             .goForward()
     }
     
     public func goBackwardAction(device: Router.Device) -> Void {
+        SpheroLedManager.shared.setSpheroTargetFromDevice(sphero: device)
         SpheroPilotManager.shared
             .setSpheroTargetFromDevice(sphero: device)
             .goBackward()
     }
     
     public func goLeftAction(device: Router.Device) -> Void {
+        SpheroLedManager.shared.setSpheroTargetFromDevice(sphero: device)
         SpheroPilotManager.shared
             .setSpheroTargetFromDevice(sphero: device)
             .goLeft()
     }
     
     public func goRightAction(device: Router.Device) -> Void {
+        SpheroLedManager.shared.setSpheroTargetFromDevice(sphero: device)
         SpheroPilotManager.shared
             .setSpheroTargetFromDevice(sphero: device)
             .goRight()

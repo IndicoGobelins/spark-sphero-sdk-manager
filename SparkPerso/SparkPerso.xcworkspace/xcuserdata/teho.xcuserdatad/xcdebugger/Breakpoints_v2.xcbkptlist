@@ -52,5 +52,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD1C22D9-C4C6-47D8-91CF-9EB8DD1EA10F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SparkPerso/SpheroStarter/SpheroSensorControlViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD1C22D9-C4C6-47D8-91CF-9EB8DD1EA10F - 3519c1f37e508130"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SparkPerso.SpheroSensorControlViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "SparkPerso"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/spark-sphero-sdk-manager/SparkPerso/SparkPerso/SpheroStarter/SpheroSensorControlViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1452">
+               </Location>
+               <Location
+                  uuid = "CD1C22D9-C4C6-47D8-91CF-9EB8DD1EA10F - 3dfeeaf91d7fd177"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SparkPerso.SensorControlData) -&gt; () in SparkPerso.SpheroSensorControlViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "SparkPerso"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/teho/Documents/cours-gobelin/dev/projet_memoire/spark-sphero-sdk-manager/SparkPerso/SparkPerso/SpheroStarter/SpheroSensorControlViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
