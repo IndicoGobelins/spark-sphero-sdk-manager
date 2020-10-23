@@ -101,62 +101,6 @@ class SpheroSensorControlViewController: UIViewController {
                         currentGyroData.append(contentsOf: [Double(gyro.x!), Double(gyro.y!), Double(gyro.z!)])
                         self.gyroChart.add(rotationRate)
                     }
-                    /*
-                    if currentAccData.count+currentGyroData.count >= 3600 {
-                        print("Data ready for network!")
-                        if self.isRecording {
-                            self.isRecording = false
-                            
-                            // Normalisation
-                            let minAcc = currentAccData.min()!
-                            let maxAcc = currentAccData.max()!
-                            let normalizedAcc = currentAccData.map { ($0 - minAcc) / (maxAcc - minAcc) }
-                            
-                            let minGyr = currentGyroData.min()!
-                            let maxGyr = currentGyroData.max()!
-                            let normalizedGyr = currentGyroData.map { ($0 - minGyr) / (maxGyr - minGyr) }
-                            
-                            self.movementData[self.selectedClass]?.append(normalizedAcc)
-                            currentAccData = []
-                            currentGyroData = []
-                        }
-                        if self.isPredicting {
-                            self.isPredicting = false
-                            
-                            // Normalisation
-                            let minAcc = currentAccData.min()!
-                            let maxAcc = currentAccData.max()!
-                            let normalizedAcc = currentAccData.map { Float(($0 - minAcc) / (maxAcc - minAcc)) }
-                            let minGyr = currentGyroData.min()!
-                            let maxGyr = currentGyroData.max()!
-                            let normalizedGyr = currentGyroData.map { Float(($0 - minGyr) / (maxGyr - minGyr)) }
-                            
-                            let prediction = try! self.neuralNet?.update(inputs: normalizedAcc)
-                            
-                            let index = prediction?.index(of: (prediction?.max()!)!)! // [0.89,0.03,0.14]
-                            
-                            
-                            let recognizedClass = Classes(rawValue: index!)!
-                            print(recognizedClass)
-                            print(prediction!)
-                            
-                            var str = "Je pense que c'est un "
-                            switch recognizedClass {
-                            case .Carre: str = str+"carré!"
-                            case .Rond: str = str+"rond!"
-                            case .Triangle: str = str+"triangle!"
-                            }
-                            let utterance = AVSpeechUtterance(string: str)
-                            utterance.voice = AVSpeechSynthesisVoice(language: "fr-Fr")
-                            utterance.rate = 0.4
-                            
-                            let synthesizer = AVSpeechSynthesizer()
-                            synthesizer.speak(utterance)
-                            currentAccData = []
-                            currentGyroData = []
-                        }
-                    }
- */
                 }
             }
         }

@@ -16,7 +16,7 @@ class SpheroLedManager {
     
     // CONSTRUCTOR
     init() {
-        self.connectFirstSphero()
+        print("Init led manager")
     }
     
     // Draw pattern in sphero led screen from a pattern if this pattern is not null
@@ -31,16 +31,12 @@ class SpheroLedManager {
         }
     }
     
-    public func connectFirstSphero() -> Void {
-        if let sphero = SharedToyBox.instance.bolts[0] as BoltToy? {
-            Debugger.shared.log("first sphero")
-            self._spheroTarget = sphero
-        }
-    }
-    
-    public func connectSecondSphero() -> Void {
-        if let sphero = SharedToyBox.instance.bolts[1] as BoltToy? {
-            Debugger.shared.log("second sphero")
+    public func setSpheroTarget(spheroNumber: Int) -> Void {
+        let index = spheroNumber - 1
+        
+        if spheroNumber <= SharedToyBox.instance.bolts.count {
+            let sphero = SharedToyBox.instance.bolts[index]
+            Debugger.shared.log("connect sphero n° \(spheroNumber)")
             self._spheroTarget = sphero
         }
     }
@@ -48,11 +44,11 @@ class SpheroLedManager {
     public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroLedManager {
         switch sphero {
             case .SPHERO1:
-                self.connectFirstSphero()
+                self.setSpheroTarget(spheroNumber: 1)
             case .SPHERO2:
-                self.connectSecondSphero()
+                self.setSpheroTarget(spheroNumber: 2)
             default:
-                self.connectFirstSphero()
+                self.setSpheroTarget(spheroNumber: 1)
         }
         
         return self
@@ -72,26 +68,30 @@ class SpheroLedManager {
     // set the pattern's matrix
     private func setPattern(pattern: String) -> Void {
         switch pattern {
-            case "heart":
-                self._pattern = HeartPattern(self)
-            case "star":
-                self._pattern = StarPattern(self)
-            case "car":
-                self._pattern = CarPattern(self)
             case "stop":
                 self._pattern = StopPattern(self)
+                break
             case "blood":
                 self._pattern = BloodPattern(self)
+                break
             case "erlenmayer":
                 self._pattern = ErlenmayerPattern(self)
-            case "dog":
-                self._pattern = DogPattern(self)
+                break
             case "doggy":
                 self._pattern = DoggyPattern(self)
+                break
             case "question":
                 self._pattern = QuestionPattern(self)
+                break
             case "adn":
                 self._pattern = AdnPattern(self)
+                break
+            case "one":
+                self._pattern = OnePattern(self)
+                break
+            case "two":
+                self._pattern = TwoPattern(self)
+                break
             default:
                 self._pattern = nil
         }
