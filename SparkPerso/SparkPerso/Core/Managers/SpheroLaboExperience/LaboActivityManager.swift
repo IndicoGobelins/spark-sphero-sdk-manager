@@ -12,7 +12,7 @@ import UIKit
 class LaboActivityManager {
     public static var shared: LaboActivityManager = LaboActivityManager()
     private var _iteration = 0
-    private let _iterationmax = 20
+    private let _iterationmax = 66
     private var isRunning = false
     
     // CONSTRUCTOR
@@ -33,7 +33,7 @@ class LaboActivityManager {
     }
     
     private func rotateSphero() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
 
             self._iteration += 1
 
@@ -76,7 +76,10 @@ class LaboActivityManager {
     }
     
     private func changeDirection(spheroInstance:  SpheroPilotManager) -> Void {
-        spheroInstance.setHeading(spheroInstance.getHeading() + 30.0)
-        SharedToyBox.instance.bolts.map{ $0.roll(heading: spheroInstance.getHeading(), speed: spheroInstance.getSpeed()) }
+        if let heading = spheroInstance.getHeading() {
+            let newHeading = heading + 40
+            spheroInstance.setHeading(newHeading)
+            SharedToyBox.instance.bolts.map{ $0.roll(heading: newHeading, speed: spheroInstance.getSpeed()) }
+        }
     }
 }

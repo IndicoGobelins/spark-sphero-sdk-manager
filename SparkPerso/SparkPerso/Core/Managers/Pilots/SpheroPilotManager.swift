@@ -10,9 +10,10 @@ import Foundation
 
 class SpheroPilotManager: TwoDimPilotManager {
     private var _spheroTarget: BoltToy? = nil
-    private var _speed: Double = 125
-    private var _heading: Double = 0
-    private var _referenceHeading: Double = 0
+    private var _headingTarget: Heading? = nil
+    private var _speed: Double = 90
+    private var _heading1: Heading = Heading()
+    private var _heading2: Heading = Heading()
     public static var shared = SpheroPilotManager()
     
     init() {
@@ -21,42 +22,51 @@ class SpheroPilotManager: TwoDimPilotManager {
     
     func stop() {
         if let sphero = self._spheroTarget {
-            sphero.stopRoll(heading: self._heading)
-            Debugger.shared.log("Sphero is STOP with speed : \(self._speed) and heading : \(self._heading)")
+            if let heading = self._headingTarget {
+                sphero.stopRoll(heading: heading.value)
+                Debugger.shared.log("Sphero is STOP with speed : \(self._speed) and heading : \(heading.value)")
+            }
         }
     }
     
     func goForward() {
         if let sphero = self._spheroTarget {
-            self._heading = self._referenceHeading
-            sphero.roll(heading: self._heading, speed: self._speed)
-            Debugger.shared.log("Sphero is FORWARD with speed : \(self._speed) and heading : \(self._heading)")
+            if let heading = self._headingTarget {
+                heading.value = heading.reference
+                sphero.roll(heading: heading.value, speed: self._speed)
+                Debugger.shared.log("Sphero is FORWARD with speed : \(self._speed) and heading : \(heading.value)")
+            }
         }
     }
     
     func goBackward() {
         if let sphero = self._spheroTarget {
-            self._heading = self._referenceHeading
-            sphero.roll(heading: self._heading, speed: self._speed, rollType: .roll, direction: .reverse)
-            Debugger.shared.log("Sphero is BACKWARD with speed : \(self._speed) and heading : \(self._heading)")
+            if let heading = self._headingTarget {
+                heading.value = heading.reference
+                sphero.roll(heading: heading.value, speed: self._speed, rollType: .roll, direction: .reverse)
+                Debugger.shared.log("Sphero is BACKWARD with speed : \(self._speed) and heading : \(heading.value)")
+            }
         }
     }
     
     func goLeft() {
         if let sphero = self._spheroTarget {
-            self._heading = self._referenceHeading - 90.0
-            sphero.roll(heading: self._heading, speed: self._speed)
-            Debugger.shared.log("Sphero is LEFT with speed : \(self._speed) and heading : \(self._heading)")
+            if let heading = self._headingTarget {
+                heading.value = heading.reference - 90
+                sphero.roll(heading: heading.value, speed: self._speed)
+                Debugger.shared.log("Sphero is LEFT with speed : \(self._speed) and heading : \(heading.value)")
+            }
         }
     }
     
     func goRight() {
         if let sphero = self._spheroTarget {
-            self._heading = self._referenceHeading + 90.0
-            sphero.roll(heading: self._heading, speed: self._speed)
-            Debugger.shared.log("Sphero is RIGHT with speed : \(self._speed) and heading : \(self._heading)")
+            if let heading = self._headingTarget {
+                heading.value = heading.reference + 90
+                sphero.roll(heading: heading.value, speed: self._speed)
+                Debugger.shared.log("Sphero is RIGHT with speed : \(self._speed) and heading : \(heading.value)")
+            }
         }
-    
     }
     
     public func setSpheroTarget(spheroNumber: Int) -> Void {
@@ -65,8 +75,7 @@ class SpheroPilotManager: TwoDimPilotManager {
         if spheroNumber <= SharedToyBox.instance.bolts.count {
             let sphero = SharedToyBox.instance.bolts[index]
             self._spheroTarget = sphero
-//            _spheroTarget?.setToyOptions(.EnableVectorDrive)
-//            _spheroTarget?.setStabilization(state: .on)
+            self._headingTarget = spheroNumber == 1 ? self._heading1 : self._heading2;
         }
     }
     
@@ -75,12 +84,16 @@ class SpheroPilotManager: TwoDimPilotManager {
         self._speed = speed
     }
     
-    public func setHeading(_ heading: Double) -> Void {
-        self._heading = heading
+    public func setHeading(_ value: Double) -> Void {
+        if let heading = self._headingTarget {
+            heading.value = value
+        }
     }
     
-    public func setReferenceHeading(_ referenceheading: Double) -> Void {
-        self._referenceHeading = referenceheading
+    public func setReferenceHeading(_ value: Double) -> Void {
+        if let heading = self._headingTarget {
+            heading.reference = value
+        }
     }
     
     public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroPilotManager {
@@ -101,12 +114,21 @@ class SpheroPilotManager: TwoDimPilotManager {
         return self._speed
     }
     
-    public func getHeading() -> Double {
-        return self._heading
+    public func getHeading() -> Double? {
+        return self._headingTarget?.value
     }
     
-    public func getReferenceHeading() -> Double {
-        return self._referenceHeading
+    public func getReferenceHeading() -> Double? {
+        return self._headingTarget?.reference
     }
     
+}
+
+class Heading {
+    public var value: Double = 0
+    public var reference: Double = 0
+    
+    init() {
+        
+    }
 }

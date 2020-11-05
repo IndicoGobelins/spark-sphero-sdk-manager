@@ -46,7 +46,7 @@ class AdminViewController: UIViewController {
     
     // CLICK LISTENERS
     @IBAction func onCLickConnectSpheros(_ sender: Any) {
-        SharedToyBox.instance.searchForBoltsNamed(["SB-6C4C", "SB-2020"]) { err in
+        SharedToyBox.instance.searchForBoltsNamed(["SB-2020", "SB-8C49"]) { err in
             if err == nil {
                 self.connectSpherosButton.backgroundColor = UIColor.systemGreen
             }
@@ -150,6 +150,18 @@ class AdminViewController: UIViewController {
         DronePilotManager.shared.goRight()
     }
     
+    @IBAction func onReleaseRightDog(_ sender: Any) {
+        if let mySpark = DJISDKManager.product() as? DJIAircraft {
+            mySpark.mobileRemoteController?.rightStickHorizontal = 0
+        }
+    }
+    
+    @IBAction func onReleaseLeftDog(_ sender: Any) {
+        if let mySpark = DJISDKManager.product() as? DJIAircraft {
+            mySpark.mobileRemoteController?.rightStickHorizontal = 0
+        }
+    }
+    
     @IBAction func onValueChangeWorkshopTab(_ sender: UISegmentedControl) {
         print("New change -> \(sender.selectedSegmentIndex)")
         switch sender.selectedSegmentIndex {
@@ -194,6 +206,29 @@ class AdminViewController: UIViewController {
         LaboActivityManager.shared.stopActivity()
     }
     
+    @IBAction func onChangeAimingSphero1(_ sender: UISwitch) {
+        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 1)
+        if sender.isOn {
+            SpheroLedManager.shared.startAiming()
+        } else {
+            SpheroLedManager.shared.stopAiming()
+        }
+    }
+    
+    @IBAction func onChangeAimingSphero2(_ sender: UISwitch) {
+        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 2)
+        if sender.isOn {
+            SpheroLedManager.shared.startAiming()
+        } else {
+            SpheroLedManager.shared.stopAiming()
+        }
+    }
+    @IBAction func onValueChangeSpeedSpheros(_ sender: UISlider) {
+        let newSpeed = sender.value
+        SpheroPilotManager.shared.setSpeed(Double(newSpeed))
+    }
+    
+    
     
     // METHODS
     private func _initRoutes() -> Void {
@@ -216,12 +251,14 @@ class AdminViewController: UIViewController {
     }
     
     private func _configureSensor() -> Void {
-        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 1)
-        SharedToyBox.instance.bolt?.sensorControl.enable(sensors: SensorMask.init(arrayLiteral: .accelerometer,.gyro))
-        SharedToyBox.instance.bolt?.sensorControl.interval = 1
-        SharedToyBox.instance.bolt?.setStabilization(state: SetStabilization.State.off)
-        SharedToyBox.instance.bolt?.sensorControl.onDataReady = { data in
+        SpheroLedManager.shared.setSpheroTarget(spheroNumber: 3)
+        
+        SharedToyBox.instance.bolts[2].sensorControl.enable(sensors: SensorMask.init(arrayLiteral: .accelerometer,.gyro))
+        SharedToyBox.instance.bolts[2].sensorControl.interval = 1
+        SharedToyBox.instance.bolts[2].setStabilization(state: SetStabilization.State.off)
+        SharedToyBox.instance.bolts[2].sensorControl.onDataReady = { data in
             DispatchQueue.main.async {
+                print("data received")
                 
                 if self.isSensorRecording {
                     
@@ -236,7 +273,7 @@ class AdminViewController: UIViewController {
                             self.isSensorRecording = false
                             
                             // Ajouter un delay pour restart tout seul le second choix random ? (en gros faire l'action du bouton randomClicked)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Change `2.0` to the desired number of seconds.
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { // Change `2.0` to the desired number of seconds.
                                SpheroLedManager.shared.clearLedScreen()
                                 
                                 if self.nbRandomChoices == self.initialArrayPatterns.count {
@@ -259,7 +296,7 @@ class AdminViewController: UIViewController {
     }
     
     private func _stopSensor() -> Void {
-        SharedToyBox.instance.bolt?.sensorControl.disable()
+        SharedToyBox.instance.bolts[2].sensorControl.disable()
         self.isSensorRecording = false
     }
     
@@ -279,6 +316,8 @@ class AdminViewController: UIViewController {
     }
     
     func startNumberDetection() {
+        // TODO - Remove the line above on prod
+        DogActivity.shared.isQrcodeDetectionActivated = true
         self._stopTimer = false
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
             self.prev1?.snapshotPreview { (image) in
@@ -336,6 +375,11 @@ class AdminViewController: UIViewController {
                 Debugger.shared.log("The suspect 3 is the guilty")
                 DronePilotManager.shared.stop()
                 DogActivity.shared.isQrcodeDetectionActivated = false
+                USBBridge.shared.send("SUSPECT_FOUND") { (error: Error?) in
+                    if error == nil {
+                        print("Success send SUSPECT_FOUND")
+                    }
+                }
             }
         }
     }

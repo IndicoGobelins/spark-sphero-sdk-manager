@@ -41,6 +41,18 @@ class SpheroLedManager {
         }
     }
     
+    public func startAiming() -> Void {
+        if let sphero = self._spheroTarget {
+            sphero.startAiming()
+        }
+    }
+    
+    public func stopAiming() -> Void {
+        if let sphero = self._spheroTarget {
+            sphero.stopAiming()
+        }
+    }
+    
     public func setSpheroTargetFromDevice(sphero: Router.Device) -> SpheroLedManager {
         switch sphero {
             case .SPHERO1:

@@ -62,7 +62,9 @@ class SpheroDirectionViewController: UIViewController {
     }
     
     func displayCurrentState() {
-        stateLabel.text = "Current Speed: \(SpheroPilotManager.shared.getSpeed().rounded())\nCurrent Heading: \(SpheroPilotManager.shared.getHeading().rounded())"
+        if let heading = SpheroPilotManager.shared.getHeading() {
+            stateLabel.text = "Current Speed: \(SpheroPilotManager.shared.getSpeed().rounded())\nCurrent Heading: \(heading.rounded())"
+        }
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -71,7 +73,6 @@ class SpheroDirectionViewController: UIViewController {
     }
     
     @IBAction func headingValueChanged(_ sender: UISlider) {
-        SpheroPilotManager.shared.setReferenceHeading(Double(sender.value))
         SpheroPilotManager.shared.setHeading(Double(sender.value))
         SpheroPilotManager.shared.stop()
         self.displayCurrentState()
